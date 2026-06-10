@@ -9,253 +9,388 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --red:#C8321A;--red-light:#FAEAE7;--bg:#F0EDE8;--white:#FFF;
+  --red:#C8321A;--rl:#FAEAE7;--bg:#F0EDE8;
   --g50:#F8F6F2;--g100:#EDEAE4;--g200:#D6D2CA;--g400:#9C9890;--g600:#6B6760;--g800:#2A2825;
-  --bd:#DAD6CE;--r:4px;
+  --bd:#DAD6CE;--r:4px;--grn:#0F6E56;--grnl:#E1F5EE;--blu:#185FA5;--blul:#E6F1FB;
 }
 body{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--g800);min-height:100vh;font-size:14px}
-.site-header{padding:1.25rem 2rem .75rem;display:flex;justify-content:space-between;align-items:center}
-.fb-btn{border:1.5px solid var(--g800);background:none;padding:.38rem .85rem;font-size:13px;cursor:pointer;border-radius:var(--r);font-family:inherit}
-.fb-btn:hover{background:var(--g800);color:#fff}
-.hero{padding:.75rem 2rem 1.75rem}
-.hero-eye{font-size:13px;color:var(--red);margin-bottom:.4rem;font-weight:500}
-.hero-h{font-size:clamp(34px,5.5vw,60px);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:.85rem}
+/* TOP */
+.topnav{background:#fff;border-bottom:1px solid var(--bd);height:54px;display:flex;align-items:center;padding:0 1.5rem;gap:.75rem;position:sticky;top:0;z-index:200}
+.logo{font-weight:900;font-size:16px;color:var(--red);display:flex;align-items:center;gap:8px;margin-right:.5rem;cursor:pointer}
+.logo-sq{width:26px;height:26px;background:var(--red);border-radius:5px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}
+/* UPLOAD BANNER */
+.upbanner{background:#fff;border-bottom:2px solid var(--red);position:relative;z-index:100;padding:.65rem 1.5rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.upbanner-label{font-size:12px;font-weight:700;color:var(--g600);letter-spacing:.03em;white-space:nowrap}
+.up-status{display:flex;align-items:center;gap:7px;font-size:12px}
+.up-dot{width:8px;height:8px;border-radius:50%;background:var(--g200);flex-shrink:0}
+.up-dot.ok{background:var(--grn)}
+.up-dot.pulse{background:var(--red);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.up-tag{display:inline-flex;align-items:center;gap:6px;background:var(--grnl);border:1px solid #9FE1CB;border-radius:var(--r);padding:.3rem .75rem;font-size:12px;color:var(--grn);font-weight:600}
+.up-btn{background:var(--red);color:#fff;border:none;border-radius:var(--r);padding:.38rem .9rem;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
+.up-btn:hover{background:#A52616}
+.up-btn.sec{background:#fff;color:var(--g600);border:1px solid var(--bd)}.up-btn.sec:hover{border-color:var(--g800);color:var(--g800)}
+/* HERO */
+.hero{padding:.85rem 1.5rem 1.5rem}
+.hero-eye{font-size:12px;color:var(--red);margin-bottom:.35rem;font-weight:600}
+.hero-h{font-size:clamp(30px,5vw,54px);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:.75rem}
 .hero-h span{color:var(--red)}
-.hero-d{font-size:13px;color:var(--g600);line-height:1.7;max-width:580px}
-.hero-hr{height:1px;background:var(--bd);margin:1.75rem 0 0}
-.ctrl{padding:1.25rem 2rem .85rem}
-.s-wrap{position:relative;margin-bottom:1rem}
-.s-wrap svg{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--g400)}
-.s-inp{width:100%;border:1.5px solid var(--bd);border-radius:var(--r);padding:.65rem .9rem .65rem 2.3rem;font-size:13px;background:#fff;font-family:inherit;outline:none;transition:border .15s}
+.hero-d{font-size:12px;color:var(--g600);line-height:1.7;max-width:560px}
+.hero-hr{height:1px;background:var(--bd);margin:1.5rem 0 0}
+/* CONTROLS */
+.ctrl{padding:1.1rem 1.5rem .8rem;display:flex;gap:.85rem;flex-direction:column}
+.s-wrap{position:relative}
+.s-wrap svg{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--g400)}
+.s-inp{width:100%;border:1.5px solid var(--bd);border-radius:var(--r);padding:.6rem .85rem .6rem 2.2rem;font-size:13px;background:#fff;font-family:inherit;outline:none}
 .s-inp:focus{border-color:var(--g800)}
-.s-ct{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);font-size:12px;color:var(--g400)}
-.fbtns{display:flex;gap:.4rem;flex-wrap:wrap}
-.fb{border:1.5px solid var(--bd);background:#fff;padding:.3rem .8rem;font-size:12px;border-radius:2px;cursor:pointer;font-family:inherit;color:var(--g600);transition:all .12s}
+.s-ct{position:absolute;right:.85rem;top:50%;transform:translateY(-50%);font-size:11px;color:var(--g400)}
+.fbtns{display:flex;gap:.35rem;flex-wrap:wrap}
+.fb{border:1.5px solid var(--bd);background:#fff;padding:.28rem .75rem;font-size:11px;border-radius:2px;cursor:pointer;font-family:inherit;color:var(--g600);transition:all .1s}
 .fb:hover{border-color:var(--g800);color:var(--g800)}
 .fb.on{background:var(--red);border-color:var(--red);color:#fff}
-.tgrid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--bd);border-left:1px solid var(--bd);margin:0 2rem 3rem}
-.tc{border-right:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:1.35rem;background:#fff;cursor:pointer;transition:background .1s;display:flex;flex-direction:column;min-height:195px;position:relative}
-.tc:hover{background:#FDFCFB}
-.tc.dim{opacity:.55;cursor:default}
-.tc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.65rem}
-.tc-num{font-size:26px;font-weight:900;line-height:1;letter-spacing:-.02em}
-.badge{font-size:10px;border:1.5px solid var(--red);color:var(--red);padding:2px 7px;border-radius:2px;font-weight:700;background:var(--red-light)}
-.badge.s{border-color:var(--g400);color:var(--g400);background:transparent}
-.tc-t{font-size:16px;font-weight:800;margin-bottom:.15rem;letter-spacing:-.01em}
-.tc-en{font-size:10px;color:var(--g400);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
-.tc-d{font-size:12px;color:var(--g600);line-height:1.65;flex:1}
-.tc-lnk{font-size:12px;color:var(--g800);margin-top:.85rem;font-weight:600;display:inline-flex;align-items:center;gap:3px}
-.tc-lnk:hover{color:var(--red)}
+/* GRID */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--bd);border-left:1px solid var(--bd);margin:0 1.5rem 3rem}
 .hidden{display:none!important}
+.tc{border-right:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:1.25rem;background:#fff;cursor:pointer;transition:background .1s;display:flex;flex-direction:column;min-height:185px;position:relative}
+.tc:hover{background:#FDFCFB}
+.tc.dim{opacity:.5;cursor:default}
+.tc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem}
+.tc-num{font-size:24px;font-weight:900;line-height:1;letter-spacing:-.02em}
+.badge{font-size:10px;border:1.5px solid var(--red);color:var(--red);padding:2px 7px;border-radius:2px;font-weight:700;background:var(--rl)}
+.badge.s{border-color:var(--g400);color:var(--g400);background:transparent}
+.tc-t{font-size:15px;font-weight:800;margin-bottom:.15rem;letter-spacing:-.01em}
+.tc-en{font-size:10px;color:var(--g400);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.55rem}
+.tc-d{font-size:11px;color:var(--g600);line-height:1.6;flex:1}
+.tc-lnk{font-size:11px;color:var(--g800);margin-top:.75rem;font-weight:700}
 /* MODAL */
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.52);z-index:500;display:none;align-items:center;justify-content:center;padding:1rem}
 .ov.open{display:flex}
-.modal{background:#fff;border-radius:var(--r);width:100%;max-width:800px;max-height:92vh;overflow-y:auto;display:flex;flex-direction:column}
-.mh{padding:1rem 1.35rem;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#fff;z-index:1}
-.mh h2{font-size:15px;font-weight:700}
+.modal{background:#fff;border-radius:var(--r);width:100%;max-width:820px;max-height:92vh;overflow-y:auto;display:flex;flex-direction:column}
+.mh{padding:.9rem 1.25rem;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#fff;z-index:1}
+.mh h2{font-size:14px;font-weight:700}
 .mcl{background:none;border:none;font-size:22px;cursor:pointer;color:var(--g400);line-height:1;padding:0 3px}
-.mcl:hover{color:var(--g800)}
-.mb{padding:1.35rem;flex:1}
+.mb{padding:1.25rem;flex:1}
 /* FORM */
 .lbl{font-size:11px;font-weight:700;color:var(--g600);margin-bottom:.3rem;display:block;letter-spacing:.03em;text-transform:uppercase}
-.inp,.sel,.ta{width:100%;border:1.5px solid var(--bd);border-radius:var(--r);padding:.5rem .75rem;font-size:13px;color:var(--g800);background:#fff;font-family:inherit;outline:none;transition:border .15s}
+.inp,.sel,.ta{width:100%;border:1.5px solid var(--bd);border-radius:var(--r);padding:.5rem .7rem;font-size:13px;color:var(--g800);background:#fff;font-family:inherit;outline:none;transition:border .15s}
 .inp:focus,.sel:focus,.ta:focus{border-color:var(--g800)}
-.ta{resize:vertical;min-height:80px;line-height:1.6}
-.fr{display:grid;gap:10px;margin-bottom:.9rem}
+.ta{resize:vertical;min-height:75px;line-height:1.6}
+.fr{display:grid;gap:10px;margin-bottom:.85rem}
 .fr.c2{grid-template-columns:1fr 1fr}
 .fr.c3{grid-template-columns:1fr 1fr 1fr}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:.55rem 1.1rem;border-radius:var(--r);font-size:12px;font-weight:700;cursor:pointer;border:1.5px solid transparent;transition:all .12s;font-family:inherit}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:.52rem 1rem;border-radius:var(--r);font-size:12px;font-weight:700;cursor:pointer;border:1.5px solid transparent;transition:all .12s;font-family:inherit}
 .bp{background:var(--red);color:#fff;border-color:var(--red)}.bp:hover{background:#A52616}
-.bd{background:var(--g800);color:#fff;border-color:var(--g800)}.bd:hover{background:#1a1815}
+.bd2{background:var(--g800);color:#fff;border-color:var(--g800)}.bd2:hover{background:#1a1815}
 .bo{background:#fff;color:var(--g600);border-color:var(--bd)}.bo:hover{border-color:var(--g800);color:var(--g800)}
+.bgrn{background:var(--grn);color:#fff;border-color:var(--grn)}.bgrn:hover{background:#085041}
 .bb{width:100%;justify-content:center}
 .bsm{padding:.35rem .7rem;font-size:11px}
 .btn:disabled{opacity:.38;cursor:not-allowed}
-.dvd{height:1px;background:var(--bd);margin:1rem 0}
-.pb{background:var(--g100);border-radius:3px;height:4px;overflow:hidden;margin:.45rem 0}
+.dvd{height:1px;background:var(--bd);margin:.9rem 0}
+.pb{background:var(--g100);border-radius:3px;height:4px;overflow:hidden;margin:.4rem 0}
 .pf{height:100%;background:var(--red);border-radius:3px;transition:width .3s}
-.al{display:flex;align-items:flex-start;gap:7px;padding:.65rem .9rem;border-radius:var(--r);font-size:12px;margin:.65rem 0}
+.al{display:flex;align-items:flex-start;gap:7px;padding:.6rem .85rem;border-radius:var(--r);font-size:12px;margin:.6rem 0;line-height:1.6}
 .ae{background:#FCEBEB;color:#A32D2D;border:1px solid #F09595}
-.as{background:#E1F5EE;color:#0F6E56;border:1px solid #9FE1CB}
+.as2{background:var(--grnl);color:var(--grn);border:1px solid #9FE1CB}
 .aw{background:#FAEEDA;color:#854F0B;border:1px solid #FAC775}
-/* DROP */
-.dz{border:2px dashed var(--bd);border-radius:var(--r);padding:1.75rem 1.25rem;text-align:center;cursor:pointer;background:var(--g50);position:relative;transition:all .15s}
-.dz:hover,.dz.hov{border-color:var(--red);background:var(--red-light)}
+.ai{background:var(--blul);color:var(--blu);border:1px solid #B5D4F4}
+/* DZ */
+.dz{border:2px dashed var(--bd);border-radius:var(--r);padding:1.5rem 1.25rem;text-align:center;cursor:pointer;background:var(--g50);position:relative;transition:all .15s}
+.dz:hover,.dz.hov{border-color:var(--red);background:var(--rl)}
 .dz input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-.ftag{display:inline-flex;align-items:center;gap:6px;background:var(--g100);border:1px solid var(--bd);border-radius:var(--r);padding:.38rem .75rem;font-size:12px;margin-top:.6rem}
+.ftag{display:inline-flex;align-items:center;gap:6px;background:var(--g100);border:1px solid var(--bd);border-radius:var(--r);padding:.35rem .7rem;font-size:12px;margin-top:.5rem}
 .rbtn{background:none;border:none;cursor:pointer;color:var(--g400);font-size:16px;line-height:1;padding:0 2px;margin-left:2px}.rbtn:hover{color:var(--red)}
 /* STATS */
-.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:.9rem}
-.sb{border:1.5px solid var(--bd);border-radius:var(--r);padding:.65rem .85rem;background:var(--g50)}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:.85rem}
+.sb{border:1.5px solid var(--bd);border-radius:var(--r);padding:.6rem .8rem;background:var(--g50)}
 .sb.hi{background:#fff;border-color:var(--g800)}
-.sb.r{background:var(--red-light);border-color:#F09595}
+.sb.r{background:var(--rl);border-color:#F09595}
+.sb.g{background:var(--grnl);border-color:#9FE1CB}
 .sbn{font-size:10px;color:var(--g400);margin-bottom:3px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-.sbv{font-size:20px;font-weight:900;letter-spacing:-.02em}
-.slg{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:5px;margin-bottom:.9rem}
-.sc{border:1px solid var(--bd);border-radius:var(--r);padding:.45rem .7rem;background:#fff}
+.sbv{font-size:19px;font-weight:900;letter-spacing:-.02em}
+.slg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:5px;margin-bottom:.85rem}
+.sc{border:1px solid var(--bd);border-radius:var(--r);padding:.42rem .65rem;background:#fff}
 .sc.m{background:var(--g50);border-color:var(--g800)}
 .scn{font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .scc{font-size:10px;color:var(--g400);margin-top:1px}
 /* SEG */
-.segg{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:7px;margin-bottom:.85rem}
-.sgc{border:1.5px solid var(--bd);border-radius:var(--r);padding:.75rem;cursor:pointer;transition:all .1s;background:#fff}
+.segg{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:7px;margin-bottom:.8rem}
+.sgc{border:1.5px solid var(--bd);border-radius:var(--r);padding:.7rem;cursor:pointer;background:#fff;transition:all .1s}
 .sgc:hover{border-color:var(--g800)}
-.sgc.on{border-color:var(--red);background:var(--red-light)}
-.si{font-size:19px;margin-bottom:.35rem}
+.sgc.on{border-color:var(--red);background:var(--rl)}
+.si{font-size:18px;margin-bottom:.3rem}
 .sn{font-size:12px;font-weight:700;margin-bottom:2px}
 .sgc.on .sn{color:var(--red)}
 .sd{font-size:10px;color:var(--g400);line-height:1.45}
 /* COPY */
-.cvs{display:flex;flex-direction:column;gap:9px}
+.cvs{display:flex;flex-direction:column;gap:8px}
 .cv{border:1.5px solid var(--bd);border-radius:var(--r);overflow:hidden;background:#fff}
-.ctag{padding:.38rem .8rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bd);font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.ctag{padding:.35rem .8rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bd);font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
 .tA{background:var(--g100);color:var(--g600)}
-.tB{background:#E6F1FB;color:#0C447C}
+.tB{background:var(--blul);color:#0C447C}
 .tC{background:#EEEDFE;color:#3C3489}
-.ci{padding:.75rem .9rem}
-.pp{background:var(--g50);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-top:.6rem}
-.pb2{background:var(--g800);color:#fff;padding:.38rem .8rem;font-size:10px;display:flex;justify-content:space-between}
-.pr{display:flex;gap:9px;padding:.65rem .8rem;align-items:flex-start}
-.pi{width:34px;height:34px;background:var(--red);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:13px;flex-shrink:0}
-.pt{font-size:12px;font-weight:700;margin-bottom:2px}
-.pm{font-size:11px;color:var(--g600);line-height:1.5}
-.ptime{font-size:10px;color:var(--g400);margin-top:2px}
-/* CHART */
-.chart-wrap{position:relative;width:100%;margin:.75rem 0}
+.ci{padding:.7rem .85rem}
+.pp{background:var(--g50);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-top:.55rem}
+.pb2{background:var(--g800);color:#fff;padding:.35rem .8rem;font-size:10px;display:flex;justify-content:space-between}
+.pr{display:flex;gap:9px;padding:.6rem .8rem;align-items:flex-start}
+.pi{width:32px;height:32px;background:var(--red);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:12px;flex-shrink:0}
 /* TABLE */
-.tbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:.75rem}
-.tbl th{text-align:left;padding:.5rem .75rem;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--g400);border-bottom:1.5px solid var(--bd);background:var(--g50)}
-.tbl td{padding:.5rem .75rem;border-bottom:1px solid var(--g100);vertical-align:middle}
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl th{text-align:left;padding:.45rem .65rem;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--g400);border-bottom:1.5px solid var(--bd);background:var(--g50)}
+.tbl td{padding:.45rem .65rem;border-bottom:1px solid var(--g100);vertical-align:middle}
 .tbl tr:hover td{background:var(--g50)}
-.tbl tr:last-child td{border-bottom:none}
-.pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700}
-.pill-g{background:#E1F5EE;color:#0F6E56}
-.pill-r{background:var(--red-light);color:var(--red)}
-.pill-y{background:#FAEEDA;color:#854F0B}
-.pill-b{background:#E6F1FB;color:#185FA5}
-/* GUIDE */
-.gi{border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-bottom:.65rem}
-.gh{padding:.65rem .9rem;display:flex;align-items:center;gap:9px;background:var(--g50)}
-.gbdy{padding:.65rem .9rem;background:#fff;border-top:1px solid var(--bd);font-size:12px;line-height:1.7}
+.pill{display:inline-block;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:700}
+.pg{background:var(--grnl);color:var(--grn)}
+.pr2{background:var(--rl);color:var(--red)}
+.py{background:#FAEEDA;color:#854F0B}
+.pb3{background:var(--blul);color:var(--blu)}
 /* CHECKLIST */
-.cl-item{display:flex;align-items:flex-start;gap:10px;padding:.65rem 0;border-bottom:1px solid var(--g100)}
+.cl-item{display:flex;align-items:flex-start;gap:9px;padding:.55rem 0;border-bottom:1px solid var(--g100);cursor:pointer}
 .cl-item:last-child{border-bottom:none}
-.cl-cb{width:18px;height:18px;border:1.5px solid var(--bd);border-radius:3px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .1s}
+.cl-cb{width:17px;height:17px;border:1.5px solid var(--bd);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .1s;font-size:11px}
 .cl-cb.ck{background:var(--red);border-color:var(--red);color:#fff}
-.cl-label{font-size:13px;line-height:1.5;flex:1}
-.cl-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:auto;flex-shrink:0}
-/* AB */
-.ab-col{flex:1;border:1.5px solid var(--bd);border-radius:var(--r);padding:.85rem;background:#fff}
-.ab-col.win{border-color:var(--red);background:var(--red-light)}
-/* RESPONSIVE */
-@media(max-width:700px){
-  .tgrid{grid-template-columns:1fr 1fr}
-  .fr.c2,.fr.c3{grid-template-columns:1fr}
-  .sg{grid-template-columns:1fr 1fr}
-  .hero,.ctrl{padding-left:1rem;padding-right:1rem}
-  .tgrid{margin:0 0 2rem}
-}
-@media(max-width:480px){.tgrid{grid-template-columns:1fr}}
+/* CHART */
+.chart-wrap{position:relative;width:100%;margin:.65rem 0}
+/* FUNNEL BAR */
+.fbar-wrap{margin-bottom:.45rem}
+.fbar-row{display:flex;align-items:center;gap:8px;margin-bottom:3px}
+.fbar-lbl{font-size:11px;font-weight:700;width:80px;flex-shrink:0}
+.fbar-bg{flex:1;background:var(--g100);border-radius:3px;height:26px;overflow:hidden}
+.fbar-fill{height:100%;border-radius:3px;display:flex;align-items:center;padding:0 8px;transition:width .4s}
+.fbar-pct{font-size:11px;font-weight:700;color:#fff}
+.fbar-num{font-size:11px;color:var(--g400);width:100px;text-align:right;flex-shrink:0}
+/* REWARD TABLE */
+.rtrow td{padding:.35rem .45rem;border-bottom:1px solid var(--g100);vertical-align:middle}
+.rtinp{width:100%;border:1px solid var(--bd);border-radius:3px;padding:.28rem .45rem;font-size:11px;font-family:inherit;background:#fff;outline:none}
+.rtinp:focus{border-color:var(--g800)}
+.rtinp.code{font-family:monospace;font-weight:700;color:var(--red)}
+.rtinp.reward{border-color:var(--grn);color:var(--grn);font-weight:600}
+/* SECTION LABEL */
+.sec-lbl{font-size:10px;font-weight:700;color:var(--g400);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.65rem}
+/* WEEK HISTORY */
+.week-row{display:flex;align-items:center;justify-content:space-between;padding:.55rem .75rem;border-bottom:1px solid var(--g100);font-size:12px}
+.week-row:last-child{border-bottom:none}
+.week-badge{font-size:10px;font-weight:700;background:var(--g100);color:var(--g600);padding:2px 7px;border-radius:10px}
+.week-row.latest .week-badge{background:var(--rl);color:var(--red)}
+@media(max-width:680px){.tgrid{grid-template-columns:1fr 1fr}.fr.c2,.fr.c3{grid-template-columns:1fr}.sg{grid-template-columns:1fr 1fr}.hero,.ctrl{padding-left:1rem;padding-right:1rem}.tgrid{margin:0 0 2rem}.upbanner{padding:.55rem 1rem}}
+@media(max-width:440px){.tgrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <button class="fb-btn" onclick="alert('請向工具負責人提供意見 🙏')">意見回饋</button>
-  <span style="font-size:12px;color:var(--g600)">因為你值得</span>
-</header>
+<nav class="topnav">
+  <div class="logo" onclick="cld()">
+    <div class="logo-sq">口</div>
+    行銷工具箱
+  </div>
+</nav>
+
+<!-- GLOBAL UPLOAD BANNER -->
+<div class="upbanner" id="upbanner">
+  <span class="upbanner-label">📂 本週名單</span>
+  <div class="up-status" id="up-status">
+    <div class="up-dot pulse" id="up-dot"></div>
+    <span id="up-msg" style="color:var(--g400)">尚未上傳名單，上傳後所有工具自動共用</span>
+  </div>
+  <div style="display:flex;gap:6px;margin-left:auto;align-items:center;flex-wrap:wrap">
+    <span id="up-tag" style="display:none" class="up-tag">✅ <span id="up-fname"></span><span id="up-frows" style="font-size:10px;margin-left:3px"></span></span>
+    <label style="cursor:pointer">
+      <input type="file" id="global-fi" accept=".xlsx" style="display:none" onchange="globalLoad()">
+      <span class="up-btn" id="up-main-btn">⬆ 上傳本週名單</span>
+    </label>
+    <button class="up-btn sec" id="up-clear-btn" style="display:none" onclick="clearGlobal()">✕ 清除</button>
+  </div>
+</div>
 
 <section class="hero">
   <div class="hero-eye">口袋行銷團隊專屬，非誠勿入</div>
   <h1 class="hero-h">口袋行銷<span>工具箱</span></h1>
-  <p class="hero-d">零安裝的微型工具！選一則項目開始，全部在瀏覽器端完成，檔案不離開你的電腦。</p>
+  <p class="hero-d">上傳一次名單，所有工具自動共用。依照工作流程排列：整理 → 篩選 → 文案 → 成效。</p>
   <div class="hero-hr"></div>
 </section>
 
 <section class="ctrl">
   <div class="s-wrap">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-    <input class="s-inp" id="si" placeholder='搜尋工具...例如「名單」「Push」「成效」「文案」' oninput="ftl()">
-    <span class="s-ct" id="sct">13 項工具</span>
+    <input class="s-inp" id="si" placeholder="搜尋工具..." oninput="ftl()" autocomplete="off">
+    <span class="s-ct" id="sct">10 項工具</span>
   </div>
-  <div class="fbtns" id="fbtns">
+  <div class="fbtns">
     <button class="fb on" data-c="全部" onclick="sf(this)">全部</button>
-    <button class="fb" data-c="名單" onclick="sf(this)">名單</button>
-    <button class="fb" data-c="Push" onclick="sf(this)">Push 文案</button>
-    <button class="fb" data-c="成效" onclick="sf(this)">成效分析</button>
-    <button class="fb" data-c="策略" onclick="sf(this)">策略</button>
-    <button class="fb" data-c="工具" onclick="sf(this)">小工具</button>
+    <button class="fb" data-c="整理" onclick="sf(this)">整理名單</button>
+    <button class="fb" data-c="篩選" onclick="sf(this)">篩選分析</button>
+    <button class="fb" data-c="文案" onclick="sf(this)">產生文案</button>
+    <button class="fb" data-c="成效" onclick="sf(this)">追蹤成效</button>
+    <button class="fb" data-c="設定" onclick="sf(this)">設定</button>
   </div>
 </section>
 
 <main class="tgrid" id="tgrid"></main>
 
-<div class="ov" id="ov" onclick="clk(event)">
-  <div class="modal" id="mbox">
+<div class="ov" id="ov" onclick="ovcl(event)">
+  <div class="modal">
     <div class="mh"><h2 id="mtitle">工具</h2><button class="mcl" onclick="cld()">×</button></div>
     <div class="mb" id="mbody"></div>
   </div>
 </div>
 
 <script>
-/* ══ TOOLS ══ */
+/* ═══ TOOLS DATA ═══ */
 const TOOLS=[
-  {id:'sort',n:'01',t:'新戶名單整理',e:'LIST SORTER',c:'名單',s:'上線',d:'上傳開戶未交易名單，依行銷碼自動分群，產出多工作表 Excel，一鍵下載。'},
-  {id:'push',n:'02',t:'Push 文案產生器',e:'PUSH COPY GENERATOR',c:'Push',s:'上線',d:'選客戶分類與推播目標，AI 秒出 3 組風格各異的標題與內文，可預覽通知樣式。'},
-  {id:'perf',n:'03',t:'Push 成效分析',e:'PUSH PERFORMANCE',c:'成效',s:'上線',d:'貼入多次推播數據（發送數、開啟數、點擊數），自動算開啟率、CTR，圖表呈現趨勢。'},
-  {id:'ab',n:'04',t:'A/B 文案比較器',e:'COPY A/B TESTER',c:'Push',s:'上線',d:'貼入兩組文案，即時對照字元數、中英比例、情緒詞密度、CTA 強度，自動推薦較優版本。'},
-  {id:'list_trend',n:'05',t:'名單趨勢分析',e:'LIST TREND',c:'成效',s:'上線',d:'上傳多週名單（或手動輸入各週人數），自動畫折線圖追蹤分類人數與開通率變化。'},
-  {id:'checklist',n:'06',t:'換檔確認清單',e:'ASSET CHECKLIST',c:'名單',s:'上線',d:'每月換檔自動生成任務清單：APP BN、彈窗、Push 素材逐項打勾確認，可記住進度。'},
-  {id:'counter',n:'07',t:'Push 字數檢查',e:'CHAR COUNTER',c:'工具',s:'上線',d:'貼入標題或內文，即時顯示字元數、中英字分佈，標示 iOS/Android 截斷風險。'},
-  {id:'segguide',n:'08',t:'客戶分類手冊',e:'SEGMENT PLAYBOOK',c:'策略',s:'上線',d:'7 種新戶分類的特徵說明與推播策略建議，新人必讀，老手速查。'},
-  {id:'history',n:'09',t:'Push 文案庫',e:'PUSH ARCHIVE',c:'Push',s:'上線',d:'預載歷史優秀文案，依分類篩選，一鍵複製或作為新文案的改寫基礎。'},
-  {id:'timing',n:'10',t:'最佳推播時段',e:'BEST SEND TIME',c:'策略',s:'上線',d:'依客戶分類與目標，建議最佳推播星期 × 時段，附台股交易行為說明。'},
-  {id:'mkcode',n:'11',t:'行銷碼查詢表',e:'MK CODE LOOKUP',c:'名單',s:'上線',d:'查詢各行銷碼對應的管道、名稱與工作表，支援搜尋，確認新行銷碼對照用。'},
-  {id:'subject',n:'12',t:'主旨行產生器',e:'SUBJECT LINE GEN',c:'Push',s:'上線',d:'輸入關鍵字與優惠內容，產生 5 組 Email / LINE 主旨行，標示字元數與建議長度。'},
-  {id:'funnel',n:'13',t:'新戶轉換漏斗',e:'CONVERSION FUNNEL',c:'成效',s:'上線',d:'輸入各階段人數（開戶→開通→入金→交易），自動計算各步驟轉換率並視覺化漏斗。'},
-  {id:'advanced',n:'14',t:'進階實動篩選',e:'ADVANCED FILTER',c:'名單',s:'上線',d:'上傳名單後勾選條件：入金狀態、APP 活躍度、開通市場、開戶天數，一鍵匯出超精準分眾名單。'},
-  {id:'deposit',n:'15',t:'入金狀態分析',e:'DEPOSIT SPLIT',c:'名單',s:'上線',d:'自動將「有入金」與「沒入金」客戶分開，產生對應的推播文案方向與個別名單。'},
-  {id:'activity',n:'16',t:'活躍度溫度計',e:'ACTIVITY METER',c:'成效',s:'上線',d:'依最後登入日期計算沉睡天數，分成高活躍（3天內）、溫和（4-7天）、沉睡（7天以上）三組。'},
-  {id:'market',n:'17',t:'台美雙引擎分析',e:'TW/US MARKET SPLIT',c:'名單',s:'上線',d:'比對客戶開通的市場（僅台股 / 台美雙開），產生對應推播策略與名單分組。'},
-  {id:'countdown',n:'18',t:'新手大禮包倒數',e:'GIFT COUNTDOWN',c:'名單',s:'上線',d:'自動抓出「開戶滿 N 天但未交易」的急迫名單，這群人轉換率最高，精準發送倒數提醒。'},
-  {id:'rewards',n:'19',t:'行銷碼獎勵對照表',e:'REWARD MANAGER',c:'名單',s:'上線',d:'預載 19 組行銷碼獎勵對照，可自行新增修改。Push 文案產生器會自動帶入對應的獎勵說法，不用每次手改。'},
+  {id:'sort',    n:'01',t:'名單整理輸出',    e:'LIST SORTER',         c:'整理',s:'上線',d:'依行銷碼自動分群，產出多工作表 Excel 下載。名單已從頂部上傳，直接整理即可。'},
+  {id:'advanced',n:'02',t:'進階實動篩選',    e:'SMART FILTER',        c:'篩選',s:'上線',d:'勾選條件：入金狀態、APP 活躍度（依最後登入日）、開通市場、開戶天數，即時預覽人數並匯出精準名單，附推播建議。'},
+  {id:'funnel',  n:'03',t:'新戶轉換漏斗',    e:'CONVERSION FUNNEL',   c:'篩選',s:'上線',d:'自動從本週名單帶入各階段人數，計算轉換率並視覺化漏斗，標出最大流失點。'},
+  {id:'push',    n:'04',t:'Push 文案產生器',  e:'PUSH COPY GENERATOR', c:'文案',s:'上線',d:'選客戶分類與行銷碼，自動帶入對應獎勵，秒出 3 組文案。內建台美股最佳推播時段建議。'},
+  {id:'perf',    n:'05',t:'Push 成效分析',   e:'PUSH PERFORMANCE',    c:'成效',s:'上線',d:'記錄每次推播成效，自動累積歷史資料，畫趨勢圖追蹤開啟率與 CTR 變化。'},
+  {id:'trend',   n:'06',t:'名單趨勢分析',    e:'LIST TREND',          c:'成效',s:'上線',d:'每週上傳名單後自動記錄各分類人數，累積後自動畫折線圖，追蹤開通率變化。'},
+  {id:'checklist',n:'07',t:'換檔確認清單',   e:'ASSET CHECKLIST',     c:'整理',s:'上線',d:'每月換檔作業逐項打勾確認，APP BN、彈窗、Push 素材、行銷碼一次檢查，進度自動儲存。'},
+  {id:'mkcode',  n:'08',t:'行銷碼查詢表',    e:'MK CODE LOOKUP',      c:'整理',s:'上線',d:'查詢各行銷碼對應的管道、名稱與獎勵內容，支援搜尋，換檔時確認用。'},
+  {id:'counter', n:'09',t:'Push 字數檢查',   e:'CHAR COUNTER',        c:'文案',s:'上線',d:'貼入文字即時顯示字元數、中英分佈，標示 iOS 截斷風險。'},
+  {id:'rewards', n:'10',t:'行銷碼獎勵對照',  e:'REWARD MANAGER',      c:'設定',s:'上線',d:'設定每個行銷碼對應的獎勵內容（現金/超商卡/LINE POINT），Push 文案產生器會自動帶入，不用每次手動改。'},
 ];
 
+/* ═══ SEGMENT DATA ═══ */
 const SEGS=[
-  {id:'未開通交易',ic:'🔒',n:'未開通交易',d:'已開戶未完成開通',st:'強調「1分鐘開通」低門檻，搭配限時好禮消除猶豫。訴求：門檻極低、好禮快到期。'},
-  {id:'台股APP一周內有登入',ic:'📱',n:'近期有登入',d:'一週內開APP但未下單',st:'已有使用意願，用具體誘因推最後一步。訴求：現在行動 → 馬上拿到好禮。'},
-  {id:'有加入選股',ic:'⭐',n:'有加入選股',d:'用選股但尚未交易',st:'以「你追蹤的股票」為切入點，把興趣轉為行動。訴求：選好了就下單。'},
-  {id:'有入金',ic:'💰',n:'有入金',d:'資金到位但未下單',st:'最接近成交！降低第一筆的心理障礙。訴求：錢都在了，只差這一下。'},
-  {id:'有開通交易但無後續動作且登入一周以上',ic:'😴',n:'開通後沉睡',d:'開通超過一週無動靜',st:'重新喚醒，搭配好禮過期提醒。訴求：你準備好了，回來就行。'},
-  {id:'美股APP一周內有登入',ic:'🌎',n:'美股有登入',d:'近期登入美股未下單',st:'碎股低門檻是關鍵，加上 $300 好禮。訴求：最低 $1 起手，不心疼。'},
-  {id:'有美股交易',ic:'🚀',n:'有美股交易',d:'有美股但台股未動',st:'強調一個帳戶台美兼顧。訴求：已是投資人，加碼台股更方便。'},
+  {id:'未開通交易',ic:'🔒',n:'未開通交易',d:'已開戶未完成開通',st:'強調「1分鐘開通」低門檻，搭配限時好禮消除猶豫。'},
+  {id:'台股APP一周內有登入',ic:'📱',n:'近期有登入',d:'一週內開APP但未下單',st:'已有使用意願，用具體誘因推最後一步。'},
+  {id:'有加入選股',ic:'⭐',n:'有加入選股',d:'用選股但尚未交易',st:'以「你追蹤的股票」為切入點，把興趣轉為行動。'},
+  {id:'有入金',ic:'💰',n:'有入金',d:'資金到位但未下單',st:'最接近成交！降低第一筆的心理障礙。'},
+  {id:'有開通交易但無後續動作且登入一周以上',ic:'😴',n:'開通後沉睡',d:'開通超過一週無動靜',st:'重新喚醒，搭配好禮過期提醒。'},
+  {id:'美股APP一周內有登入',ic:'🌎',n:'美股有登入',d:'近期登入美股未下單',st:'碎股低門檻是關鍵，加上新戶好禮。'},
+  {id:'有美股交易',ic:'🚀',n:'有美股交易',d:'有美股但台股未動',st:'強調一個帳戶台美兼顧。'},
 ];
 
+/* ═══ COPY TEMPLATES ═══ */
 const CTPLS={
-  '未開通交易':{A:{t:'你的帳戶還差最後一步🔓',b:'開通只要1分鐘！$300新戶好禮等你，別讓它過期了～'},B:{t:'開戶完成了，接下來呢？',b:'還沒開通交易？3步驟搞定，立刻領新戶好禮👇'},C:{t:'⏳ 你的$300好禮快過期了',b:'現在完成開通就能領，台美股超低手續費！'}},
-  '台股APP一周內有登入':{A:{t:'你在看了，不如下單試試🙌',b:'新戶首筆超低手續費，$300好禮等你！'},B:{t:'📊 選股清單動起來！',b:'從看股到下單只差一步，超低費率讓你練手不心疼'},C:{t:'行情等不了人⚡ 現在下單',b:'你上次開APP在看什麼？現在買起來！$300好禮限時領'}},
-  '有加入選股':{A:{t:'你追蹤的股票在動了📈',b:'選好股了，趁現在下單？超低費率+$300好禮！'},B:{t:'⭐ 選股清單出動的時候到了',b:'你挑的標的值得行動！優惠費率，把想法變持倉'},C:{t:'好股不等人！清單在呼喚你',b:'第一筆交易，$300好禮馬上入袋💪'}},
-  '有入金':{A:{t:'錢已經在帳上了💰 等你出手！',b:'資金到位，第一筆交易就是現在！$300好禮別忘記領'},B:{t:'你的資金正在等你行動💡',b:'入金已完成，只差最後一步！現在下單最合時機'},C:{t:'⚡ 帳上有錢不用嗎？',b:'今天完成第一筆交易，$300好禮同步入袋！'}},
-  '有開通交易但無後續動作且登入一周以上':{A:{t:'你已準備好了，就差行動💪',b:'功能早開通了！現在下第一單，好禮快到期了'},B:{t:'📋 許久不見！好禮還在等你',b:'帳戶開通後沒進場，重拾投資節奏，$300限時領！'},C:{t:'好禮快過期⏰ 現在回來！',b:'距截止只剩幾天，完成第一筆交易輕鬆入帳'}},
-  '美股APP一周內有登入':{A:{t:'全球股市等你🌎 美股0.08%費率',b:'碎股也能買，$1起手！完成第一筆再領$300好禮'},B:{t:'💵 美股首單，費率超佛心！',b:'0.08%無低消，碎股也划算！$300好禮等你領'},C:{t:'⚡ 美股新手首購：$300好禮',b:'0.08%費率+$300好禮，立即下單！'}},
-  '有美股交易':{A:{t:'美股玩家來台股更輕鬆🇹🇼',b:'台股費率一樣超低！新戶好禮別錯過'},B:{t:'🚀 跨市場佈局，台股同步',b:'投資不只美股！新戶限定費率，現在最划算'},C:{t:'一個帳戶玩台美股⚡',b:'已有美股持倉，加碼台股更分散！超低費率+好禮'}},
-  'def':{A:{t:'📱 你的新戶好禮在等你',b:'完成第一筆交易即可領取$300好禮，超低手續費！'},B:{t:'投資第一步，從口袋開始',b:'新戶專屬超低費率，台美股一個帳戶，$300好禮👇'},C:{t:'⏳ 限時好禮快截止了！',b:'新戶費率+$300好禮，下第一筆單馬上到手！'}},
+  '未開通交易':{A:{t:'你的帳戶還差最後一步🔓',b:'開通只要1分鐘！{獎勵}等你，別讓它過期了～'},B:{t:'開戶完成了，接下來呢？',b:'還沒開通交易？3步驟搞定，立刻領{獎勵}👇'},C:{t:'⏳ 你的{獎勵}快過期了',b:'現在完成開通就能領，台美股超低手續費！'}},
+  '台股APP一周內有登入':{A:{t:'你在看了，不如下單試試🙌',b:'新戶首筆超低手續費，{獎勵}等你！'},B:{t:'📊 選股清單動起來！',b:'從看股到下單只差一步，{獎勵}讓你練手不心疼'},C:{t:'行情等不了人⚡ 現在下單',b:'你上次開APP在看什麼？現在買起來！{獎勵}限時領'}},
+  '有加入選股':{A:{t:'你追蹤的股票在動了📈',b:'選好股了，趁現在下單？超低費率+{獎勵}！'},B:{t:'⭐ 選股清單出動的時候到了',b:'你挑的標的值得行動！優惠費率，把想法變持倉'},C:{t:'好股不等人！清單在呼喚你',b:'第一筆交易，{獎勵}馬上入袋💪'}},
+  '有入金':{A:{t:'錢已經在帳上了💰 等你出手！',b:'資金到位，第一筆交易就是現在！{獎勵}別忘記領'},B:{t:'你的資金正在等你行動💡',b:'入金已完成，只差最後一步！現在下單最合時機'},C:{t:'⚡ 帳上有錢不用嗎？',b:'今天完成第一筆交易，{獎勵}同步入袋！'}},
+  '有開通交易但無後續動作且登入一周以上':{A:{t:'你已準備好了，就差行動💪',b:'功能早開通了！現在下第一單，{獎勵}快到期了'},B:{t:'📋 許久不見！好禮還在等你',b:'帳戶開通後沒進場，重拾投資節奏，{獎勵}限時領！'},C:{t:'好禮快過期⏰ 現在回來！',b:'距截止只剩幾天，完成第一筆交易輕鬆入帳'}},
+  '美股APP一周內有登入':{A:{t:'全球股市等你🌎 美股0.08%費率',b:'碎股也能買，$1起手！{獎勵}等你'},B:{t:'💵 美股首單，費率超佛心！',b:'0.08%無低消，碎股也划算！{獎勵}等你領'},C:{t:'⚡ 美股新手首購：{獎勵}',b:'0.08%費率+限定好禮，立即下單！'}},
+  '有美股交易':{A:{t:'美股玩家來台股更輕鬆🇹🇼',b:'台股費率一樣超低！{獎勵}別錯過'},B:{t:'🚀 跨市場佈局，台股同步',b:'投資不只美股！新戶限定費率，現在最划算'},C:{t:'一個帳戶玩台美股⚡',b:'已有美股持倉，加碼台股更分散！超低費率+{獎勵}'}},
+  'def':{A:{t:'📱 你的新戶好禮在等你',b:'完成第一筆交易即可領取{獎勵}，超低手續費！'},B:{t:'投資第一步，從口袋開始',b:'新戶專屬超低費率，台美股一個帳戶，{獎勵}👇'},C:{t:'⏳ 限時好禮快截止了！',b:'新戶費率+{獎勵}，下第一筆單馬上到手！'}},
 };
 
 const CODE_MAP={MKUS01:'MKUS01',MKADAP:'MKADAP.MKAD03',MKAD03:'MKADAP.MKAD03',MKADGO:'MKADGO',MKADCH:'MKADCH',MKLIFI:'MKLIFI',MKKB01:'MKKB01',MKCM07:'MKCM07',MKK040:'MKK040',MKK113:'MKK113',MKK110:'MKK110',MKK021:'MKK021.MKK022',MKK022:'MKK021.MKK022',MKK020:'MKK020',MKBKEE:'MKBKEE',MKBPAY:'MKBPAY',MKBCHP:'MKBCHP',MKL031:'MKL031'};
 const SO=['Query result','新戶禮','美股新戶','MKL031','MKUS01','MKADAP.MKAD03','MKADGO','MKADCH','MKLIFI','MKKB01','MKCM07','MKK040','MKK113','MKK110','MKK021.MKK022','MKK020','MKBKEE','MKBPAY','MKBCHP'];
 
-const ARCHIVE=[
-  {seg:'有入金',t:'💰 錢到了！下第一單領$300',b:'你的資金已就緒，今天完成交易，超低費率+好禮同步入袋！',rate:'8.2%'},
-  {seg:'台股APP一周內有登入',t:'行情等不了人⚡ 現在就下單',b:'你上次開APP在看什麼？現在買起來！新戶$300好禮限時領取',rate:'7.6%'},
-  {seg:'未開通交易',t:'⏳ 你的$300好禮快過期了',b:'帳戶還差最後一步！現在完成開通就能領',rate:'6.9%'},
-  {seg:'有加入選股',t:'你追蹤的股票在動了📈',b:'都已經選好股了，趁現在下單？超低費率+$300好禮！',rate:'6.5%'},
-  {seg:'美股APP一周內有登入',t:'💵 美股首單，費率超佛心！',b:'0.08%手續費無低消，買碎股也划算！$300好禮等你領',rate:'5.8%'},
-  {seg:'有開通交易但無後續動作且登入一周以上',t:'好禮快過期⏰ 現在回來！',b:'距離好禮截止只剩幾天，完成第一筆交易輕鬆入帳',rate:'5.3%'},
+const DEFAULT_REWARDS=[
+  {code:'MKUS01',name:'美股官方',reward:'$300好禮',type:'現金',desc:'首次美股交易贈',expire:''},
+  {code:'MKADAP',name:'廣告AP',reward:'$300好禮',type:'現金',desc:'',expire:''},
+  {code:'MKADCH',name:'廣告CH',reward:'$300好禮',type:'現金',desc:'',expire:''},
+  {code:'MKADGO',name:'廣告GO',reward:'$300好禮',type:'現金',desc:'',expire:''},
+  {code:'MKLIFI',name:'Lifi合作',reward:'$300好禮＋限定好禮',type:'現金',desc:'外部合作加碼',expire:''},
+  {code:'MKKB01',name:'KOL B01',reward:'$300好禮',type:'現金',desc:'',expire:''},
+  {code:'MKCM07',name:'CMoney',reward:'$300好禮',type:'現金',desc:'',expire:''},
+  {code:'MKK110',name:'CMoney 110',reward:'超商禮品卡 $100',type:'超商卡',desc:'',expire:''},
+  {code:'MKK021',name:'CMoney 021',reward:'LINE POINT 300點',type:'LINE',desc:'',expire:''},
+  {code:'MKK022',name:'CMoney 022',reward:'LINE POINT 300點',type:'LINE',desc:'',expire:''},
+  {code:'MKK020',name:'CMoney 020',reward:'$200好禮',type:'現金',desc:'',expire:''},
+  {code:'MKBCHP',name:'CHP銀行',reward:'超商禮品卡 $200',type:'超商卡',desc:'',expire:''},
+  {code:'MKBKEE',name:'KEE銀行',reward:'$300好禮',type:'現金',desc:'',expire:''},
+  {code:'MKL031',name:'LINE 031',reward:'LINE POINT 150點',type:'LINE',desc:'',expire:''},
+  {code:'MK0000',name:'官方預設',reward:'$300好禮',type:'現金',desc:'',expire:''},
+  {code:'MKK040',name:'CMoney 040',reward:'$300好禮',type:'現金',desc:'',expire:''},
+  {code:'MKK113',name:'CMoney 113',reward:'$300好禮',type:'現金',desc:'',expire:''},
+  {code:'MKBPAY',name:'PAY銀行',reward:'$300好禮',type:'現金',desc:'',expire:''},
+  {code:'MKAD03',name:'廣告AD03',reward:'$300好禮',type:'現金',desc:'',expire:''},
 ];
 
-/* ══ RENDER GRID ══ */
-let curCat='全部', curQ='';
+/* ═══ GLOBAL STATE ═══ */
+let gRows=null; // global uploaded rows
+let gFileName='';
+
+/* ═══ STORAGE HELPERS ═══ */
+function ls(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}
+function lss(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function loadRewards(){const r=ls('rewards',[]);return r.length>0?r:DEFAULT_REWARDS.map(x=>({...x}));}
+function saveRewards(d){lss('rewards',d);}
+
+/* ═══ GLOBAL UPLOAD ═══ */
+function globalLoad(){
+  const fi=document.getElementById('global-fi');
+  if(!fi||!fi.files[0])return;
+  const f=fi.files[0];
+  const reader=new FileReader();
+  reader.onload=e=>{
+    try{
+      const wb=XLSX.read(e.target.result,{type:'array',cellDates:true});
+      const rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:''});
+      if(!rows.length){alert('檔案沒有資料');return;}
+      gRows=rows;gFileName=f.name;
+      updateUpBanner();
+      // Auto-save trend data
+      saveTrendWeek(rows);
+    }catch(err){alert('讀取失敗：'+err.message);}
+  };
+  reader.readAsArrayBuffer(fi.files[0]);
+}
+
+function updateUpBanner(){
+  const dot=document.getElementById('up-dot');
+  const msg=document.getElementById('up-msg');
+  const tag=document.getElementById('up-tag');
+  const fname=document.getElementById('up-fname');
+  const frows=document.getElementById('up-frows');
+  const clrBtn=document.getElementById('up-clear-btn');
+  const mainBtn=document.getElementById('up-main-btn');
+  if(gRows){
+    dot.className='up-dot ok';
+    msg.style.color='var(--grn)';
+    msg.textContent='名單已載入，所有工具共用此資料';
+    fname.textContent=gFileName;
+    frows.textContent='（'+gRows.length.toLocaleString()+' 筆）';
+    tag.style.display='inline-flex';
+    clrBtn.style.display='inline-block';
+    mainBtn.textContent='↺ 更換名單';
+  }else{
+    dot.className='up-dot pulse';
+    msg.style.color='var(--g400)';
+    msg.textContent='尚未上傳名單，上傳後所有工具自動共用';
+    tag.style.display='none';
+    clrBtn.style.display='none';
+    mainBtn.textContent='⬆ 上傳本週名單';
+  }
+}
+function clearGlobal(){gRows=null;gFileName='';updateUpBanner();}
+
+function daysSince(d){
+  if(!d)return 999;
+  const dt=d instanceof Date?d:new Date(d);
+  if(isNaN(dt))return 999;
+  return Math.floor((Date.now()-dt.getTime())/86400000);
+}
+function exportRows(rows,name){
+  if(!rows||!rows.length){alert('沒有符合條件的資料');return;}
+  const wb=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(rows),'篩選結果');
+  const d=new Date();const ds=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+  XLSX.writeFile(wb,name+'_'+ds+'.xlsx');
+}
+
+/* ═══ TREND AUTO-SAVE ═══ */
+function getWeekLabel(){const d=new Date();return d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate()+'週';}
+function saveTrendWeek(rows){
+  if(!rows)return;
+  const seg_counts={};
+  SEGS.forEach(s=>seg_counts[s.id]=0);
+  rows.forEach(r=>{
+    const seg=(r['分類樣態']||'').toString().trim();
+    if(seg_counts.hasOwnProperty(seg))seg_counts[seg]++;
+  });
+  const weeks=ls('trend_weeks',[]);
+  const label=getWeekLabel();
+  const exists=weeks.findIndex(w=>w.label===label);
+  const entry={label,total:rows.length,segs:seg_counts,ts:Date.now()};
+  if(exists>=0)weeks[exists]=entry;else weeks.push(entry);
+  // keep last 12 weeks
+  if(weeks.length>12)weeks.splice(0,weeks.length-12);
+  lss('trend_weeks',weeks);
+}
+
+/* ═══ GRID RENDER ═══ */
+let curCat='全部',curQ='';
 function rg(){
   const g=document.getElementById('tgrid');
   let vis=0;
@@ -264,391 +399,123 @@ function rg(){
     const mq=!curQ||t.t.includes(curQ)||t.e.toLowerCase().includes(curQ.toLowerCase())||t.d.includes(curQ);
     const hide=!(mc&&mq);
     if(!hide)vis++;
-    const clickable=t.s!=='即將推出';
-    return '<div class="tc'+(hide?' hidden':'')+(clickable?'':' dim')+'" data-id="'+t.id+'" data-live="'+(clickable?'1':'0')+'">'+
-      '<div class="tc-top"><span class="tc-num">'+t.n+'</span><span class="badge'+(clickable?'':' s')+'">'+t.s+'</span></div>'+
+    const live=t.s!=='即將推出';
+    return '<div class="tc'+(hide?' hidden':'')+(live?'':' dim')+'" data-id="'+t.id+'" data-live="'+(live?'1':'0')+'">'+
+      '<div class="tc-top"><span class="tc-num">'+t.n+'</span><span class="badge'+(live?'':' s')+'">'+t.s+'</span></div>'+
       '<div class="tc-t">'+t.t+'</div><div class="tc-en">'+t.e+'</div>'+
       '<div class="tc-d">'+t.d+'</div>'+
-      (clickable?'<span class="tc-lnk">開啟 →</span>':'')+
+      (live?'<span class="tc-lnk">開啟 →</span>':'')+
     '</div>';
   }).join('');
   document.getElementById('sct').textContent=vis+' 項工具';
-  // attach click via event delegation
-  g.onclick=function(e){
-    const card=e.target.closest('[data-id]');
-    if(card && card.dataset.live==='1') ot(card.dataset.id);
-  };
+  g.onclick=function(e){const c=e.target.closest('[data-id]');if(c&&c.dataset.live==='1')ot(c.dataset.id);};
 }
-function sf(b){document.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));b.classList.add('on');curCat=b.dataset.c;rg();}
+function sf(b){
+  document.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  curCat=b.dataset.c;
+  // Don't clear search, just re-filter with new category
+  rg();
+}
 function ftl(){curQ=document.getElementById('si').value.trim();rg();}
+
+/* ═══ MODAL ═══ */
+const GMAP={sort:guiSort,checklist:guiChecklist,mkcode:guiMkCode,advanced:guiAdvanced,funnel:guiFunnel,push:guiPush,subject:guiSubject,counter:guiCounter,perf:guiPerf,trend:guiTrend,rewards:guiRewards};
 function ot(id){
   const t=TOOLS.find(x=>x.id===id);if(!t)return;
   document.getElementById('mtitle').textContent=t.t;
-  document.getElementById('mbody').innerHTML=gui(id);
+  document.getElementById('mbody').innerHTML=(GMAP[id]||(() => ''))();
   document.getElementById('ov').classList.add('open');
   setTimeout(()=>initTool(id),50);
 }
-function clk(e){if(e.target===document.getElementById('ov'))cld();}
+function ovcl(e){if(e.target.classList.contains('ov'))cld();}
 function cld(){document.getElementById('ov').classList.remove('open');}
-
-/* ══ TOOL INIT ══ */
 function initTool(id){
+  if(id==='sort')initSort();
+  if(id==='advanced')initAdv();
+  if(id==='funnel')initFunnel();
   if(id==='push')initPush();
   if(id==='perf')initPerf();
-  if(id==='list_trend')initTrend();
-  if(id==='funnel')initFunnel();
-  if(id==='mkcode')renderMkTable();
-  if(id==='advanced')initAdvanced();
-  if(id==='deposit')initDeposit();
-  if(id==='activity')initActivity();
-  if(id==='market')initMarket();
-  if(id==='countdown')initCountdown();
+  if(id==='trend')initTrend();
+  if(id==='mkcode')renderMkTbl();
   if(id==='rewards')initRewards();
 }
 
-/* ══ GUI BUILDERS ══ */
-function gui(id){
-  const m={sort:guiSort,push:guiPush,perf:guiPerf,ab:guiAB,list_trend:guiTrend,checklist:guiChecklist,counter:guiCounter,segguide:guiSeg,history:guiHistory,timing:guiTiming,mkcode:guiMkCode,subject:guiSubject,funnel:guiFunnel,advanced:guiAdvanced,deposit:guiDeposit,activity:guiActivity,market:guiMarket,countdown:guiCountdown,rewards:guiRewards};
-  return (m[id]||(() => '<p>即將推出</p>'))();
+/* ═══ NO-FILE NOTICE ═══ */
+function noFileNotice(toolName){
+  return `<div class="al ai">📂 請先在頂部上傳本週名單，${toolName}會自動帶入資料。</div>`;
 }
 
-/* ── 01 SORT ── */
-let sfd=null,swb=null;
+/* ═══════════════════════════════════════════
+   01 SORT
+═══════════════════════════════════════════ */
+let sortWB=null;
 function guiSort(){return`
-<div class="dz" id="sdz" ondragover="dv(event,'sdz',1)" ondragleave="dv(event,'sdz',0)" ondrop="sdr(event)">
-  <input type="file" id="sfi" accept=".xlsx" onchange="shf(document.getElementById('sfi').files[0])">
-  <div style="font-size:30px;margin-bottom:.4rem">📂</div>
-  <div style="font-size:14px;font-weight:700;margin-bottom:.2rem">點擊或拖曳上傳</div>
-  <div style="font-size:11px;color:var(--g400)">需含欄位：分類樣態、行銷碼、身分證、美股開戶</div>
-</div>
-<div id="sftw" style="display:none;margin-top:.6rem"><div class="ftag">📄 <span id="sfn"></span><span id="sfr" style="font-size:10px;color:var(--g600);margin-left:4px"></span><button class="rbtn" onclick="csf()">×</button></div></div>
-<div id="ser" class="al ae" style="display:none"></div>
-<div id="spr" style="display:none;margin-top:.65rem"><div style="font-size:11px;color:var(--g400)" id="spl">處理中...</div><div class="pb"><div class="pf" id="spf" style="width:0%"></div></div></div>
-<button class="btn bp bb" id="sbt" onclick="rs()" disabled style="margin-top:.9rem">▶ 開始整理</button>
-<div id="srs" style="display:none;margin-top:1.1rem"><div class="dvd"></div><div class="sg" id="sst"></div>
-<div class="lbl" style="margin-bottom:.4rem">工作表明細</div><div class="slg" id="ssl"></div>
-<button class="btn bd bb" onclick="dl()">⬇ 下載 Excel（含今日日期）</button></div>`;}
-function dv(e,id,on){e.preventDefault();const el=document.getElementById(id);if(el)el.classList[on?'add':'remove']('hov');}
-function sdr(e){e.preventDefault();dv(e,'sdz',0);shf(e.dataTransfer.files[0]);}
-function shf(f){
-  if(!f)return;if(!f.name.toLowerCase().endsWith('.xlsx')){se('請上傳 .xlsx 格式');return;}se('');
-  const r=new FileReader();r.onload=ev=>{
-    try{const wb=XLSX.read(ev.target.result,{type:'array',cellDates:true});
-    const rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:''});
-    if(!rows.length){se('檔案沒有資料');return;}
-    const miss=['身分證','行銷碼','美股開戶','分類樣態'].filter(k=>!rows[0].hasOwnProperty(k));
-    if(miss.length){se('缺少欄位：'+miss.join('、'));return;}
-    sfd=ev.target.result;
-    document.getElementById('sfn').textContent=f.name;
-    document.getElementById('sfr').textContent='（'+rows.length.toLocaleString()+' 筆）';
-    document.getElementById('sftw').style.display='block';
-    document.getElementById('sbt').disabled=false;
-    document.getElementById('srs').style.display='none';
-    }catch(err){se('讀取失敗：'+err.message);}
-  };r.readAsArrayBuffer(f);
+<div id="sort-from-global"></div>
+<div id="sort-err" class="al ae" style="display:none"></div>
+<div id="sort-prog" style="display:none"><div style="font-size:11px;color:var(--g400)" id="sort-pl">處理中...</div><div class="pb"><div class="pf" id="sort-pf" style="width:0%"></div></div></div>
+<button class="btn bp bb" id="sort-btn" onclick="runSort()" style="margin-top:.85rem">▶ 開始整理</button>
+<div id="sort-rs" style="display:none;margin-top:1rem"></div>`;}
+
+function initSort(){
+  const el=document.getElementById('sort-from-global');
+  if(gRows){
+    el.innerHTML=`<div class="al as2">✅ 使用頂部已上傳的名單：<strong>${gFileName}</strong>（${gRows.length.toLocaleString()} 筆）</div>`;
+  }else{
+    el.innerHTML=noFileNotice('名單整理')+'<div class="dz" id="sdz" ondragover="dv(event,\'sdz\',1)" ondragleave="dv(event,\'sdz\',0)" ondrop="sdr(event)"><input type="file" id="sfi" accept=".xlsx" onchange="sload()"><div style="font-size:11px;color:var(--g400)">或在此上傳替代名單</div></div>';
+    document.getElementById('sort-btn').disabled=true;
+  }
 }
-function csf(){sfd=null;swb=null;['sftw','srs','spr'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='none';});se('');const el=document.getElementById('sbt');if(el)el.disabled=true;}
-function se(m){const el=document.getElementById('ser');if(!el)return;el.textContent=m;el.style.display=m?'flex':'none';}
-function sp(p,l){const el=document.getElementById('spr');if(el)el.style.display='block';const pl=document.getElementById('spl');if(pl)pl.textContent=l;const pf=document.getElementById('spf');if(pf)pf.style.width=p+'%';}
-function rs(){
-  if(!sfd)return;se('');document.getElementById('srs').style.display='none';document.getElementById('sbt').disabled=true;sp(15,'讀取檔案...');
-  setTimeout(()=>{try{
-    const wb=XLSX.read(sfd,{type:'array',cellDates:true});
-    const rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:''});
-    sp(45,'分群整理中...');
+function dv(e,id,on){e.preventDefault();const el=document.getElementById(id);if(el)el.classList[on?'add':'remove']('hov');}
+function sdr(e){e.preventDefault();dv(e,'sdz',0);const fi=document.getElementById('sfi');if(e.dataTransfer.files[0]){const dt=new DataTransfer();dt.items.add(e.dataTransfer.files[0]);fi.files=dt.files;}sload();}
+function sload(){
+  const fi=document.getElementById('sfi');if(!fi||!fi.files[0])return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    try{
+      const wb=XLSX.read(ev.target.result,{type:'array',cellDates:true});
+      const rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:''});
+      if(!rows.length){alert('沒有資料');return;}
+      gRows=rows;gFileName=fi.files[0].name;updateUpBanner();
+      document.getElementById('sort-from-global').innerHTML=`<div class="al as2">✅ 已載入：<strong>${gFileName}</strong>（${rows.length.toLocaleString()} 筆）</div>`;
+      document.getElementById('sort-btn').disabled=false;
+    }catch(err){alert('讀取失敗：'+err.message);}
+  };reader.readAsArrayBuffer(fi.files[0]);
+}
+function setSortP(p,l){document.getElementById('sort-prog').style.display='block';document.getElementById('sort-pl').textContent=l;document.getElementById('sort-pf').style.width=p+'%';}
+function runSort(){
+  if(!gRows){alert('請先上傳名單');return;}
+  document.getElementById('sort-rs').style.display='none';
+  document.getElementById('sort-btn').disabled=true;
+  setSortP(15,'讀取中...');
+  setTimeout(()=>{
+    const rows=gRows;setSortP(45,'分群中...');
     const nm={};const um=[];
     for(const r of rows){const cd=(r['行銷碼']||'').toString().trim().toUpperCase();const sh=CODE_MAP[cd];if(sh){if(!nm[sh])nm[sh]=[];nm[sh].push(r['身分證']);}else um.push(r);}
-    sp(70,'建立工作表...');
+    setSortP(70,'建立工作表...');
     const nwb=XLSX.utils.book_new();const hd=Object.keys(rows[0]);
     XLSX.utils.book_append_sheet(nwb,XLSX.utils.json_to_sheet(rows,{header:hd}),'Query result');
     XLSX.utils.book_append_sheet(nwb,XLSX.utils.json_to_sheet(um.map(r=>({'身分證':r['身分證']}))),'新戶禮');
     const ur=um.filter(r=>(r['美股開戶']||'').toString().trim()==='Y');
     XLSX.utils.book_append_sheet(nwb,XLSX.utils.json_to_sheet(ur.map(r=>({'身分證':r['身分證']}))),'美股新戶');
     const sc={'Query result':rows.length,'新戶禮':um.length,'美股新戶':ur.length};
-    for(const sn of SO){if(['Query result','新戶禮','美股新戶'].includes(sn))continue;const ids=nm[sn]||[];if(!nwb.SheetNames.includes(sn))XLSX.utils.book_append_sheet(nwb,XLSX.utils.json_to_sheet(ids.map(id=>({'身分證':id}))),sn);sc[sn]=ids.length;}
+    for(const sn of SO){if(['Query result','新戶禮','美股新戶'].includes(sn))continue;const ids=nm[sn]||[];if(!nwb.SheetNames.includes(sn)){XLSX.utils.book_append_sheet(nwb,XLSX.utils.json_to_sheet(ids.map(id=>({'身分證':id}))),sn);}sc[sn]=ids.length;}
     for(const[sn,ids]of Object.entries(nm)){if(!nwb.SheetNames.includes(sn)){XLSX.utils.book_append_sheet(nwb,XLSX.utils.json_to_sheet(ids.map(id=>({'身分證':id}))),sn);sc[sn]=ids.length;}}
-    sp(95,'完成！');swb=nwb;
-    document.getElementById('sst').innerHTML=`<div class="sb hi"><div class="sbn">總名單</div><div class="sbv">${rows.length.toLocaleString()}</div></div><div class="sb"><div class="sbn">新戶禮</div><div class="sbv">${um.length.toLocaleString()}</div></div><div class="sb"><div class="sbn">美股新戶</div><div class="sbv">${ur.length.toLocaleString()}</div></div><div class="sb"><div class="sbn">行銷碼分群</div><div class="sbv">${Object.values(nm).reduce((a,b)=>a+b.length,0).toLocaleString()}</div></div>`;
-    document.getElementById('ssl').innerHTML=Object.entries(sc).map(([s,c])=>`<div class="sc${['Query result','新戶禮','美股新戶'].includes(s)?' m':''}"><div class="scn">${s}</div><div class="scc">${c.toLocaleString()} 筆</div></div>`).join('');
-    document.getElementById('srs').style.display='block';document.getElementById('spr').style.display='none';document.getElementById('sbt').disabled=false;
-  }catch(err){se('處理失敗：'+err.message);document.getElementById('spr').style.display='none';document.getElementById('sbt').disabled=false;}},50);
+    setSortP(95,'完成！');sortWB=nwb;
+    document.getElementById('sort-rs').innerHTML=`
+      <div class="sg"><div class="sb hi"><div class="sbn">總名單</div><div class="sbv">${rows.length.toLocaleString()}</div></div><div class="sb"><div class="sbn">新戶禮</div><div class="sbv">${um.length.toLocaleString()}</div></div><div class="sb"><div class="sbn">美股新戶</div><div class="sbv">${ur.length.toLocaleString()}</div></div><div class="sb"><div class="sbn">行銷碼分群</div><div class="sbv">${Object.values(nm).reduce((a,b)=>a+b.length,0).toLocaleString()}</div></div></div>
+      <div class="slg">${Object.entries(sc).map(([s,c])=>`<div class="sc${['Query result','新戶禮','美股新戶'].includes(s)?' m':''}"><div class="scn">${s}</div><div class="scc">${c.toLocaleString()} 筆</div></div>`).join('')}</div>
+      <button class="btn bgrn bb" onclick="dlSort()">⬇ 下載整理好的 Excel</button>`;
+    document.getElementById('sort-rs').style.display='block';
+    document.getElementById('sort-prog').style.display='none';
+    document.getElementById('sort-btn').disabled=false;
+  },50);
 }
-function dl(){if(!swb)return;const d=new Date();const ds=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');XLSX.writeFile(swb,'台股_新戶未交易_'+ds+'.xlsx');}
+function dlSort(){if(!sortWB)return;const d=new Date();const ds=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');XLSX.writeFile(sortWB,'台股_新戶未交易_'+ds+'.xlsx');}
 
-/* ── 02 PUSH ── */
-function guiPush(){return`
-<div class="lbl" style="margin-bottom:.6rem">① 選擇客戶分類</div>
-<div class="segg" id="psg">${SEGS.map((s,i)=>`<div class="sgc${i===0?' on':''}" onclick="pss(this,'${s.id}')"><div class="si">${s.ic}</div><div class="sn">${s.n}</div><div class="sd">${s.d}</div></div>`).join('')}</div>
-<input type="hidden" id="psel" value="${SEGS[0].id}">
-<div class="dvd"></div>
-<div class="fr c2"><div><label class="lbl">② 推播目標</label><select class="sel" id="pgl"><option>首次下單</option><option>開通交易</option><option>入金</option><option>美股首單</option><option>領取新戶禮</option><option>推薦好友</option></select></div>
-<div><label class="lbl">③ 主要優惠</label><select class="sel" id="pof"><option>$300 好禮</option><option>$600 折抵金</option><option>0.08% 超低手續費</option><option>超低手續費</option><option>限時好禮即將到期</option></select></div></div>
-<div class="fr c2"><div><label class="lbl">④ 語氣風格</label><select class="sel" id="pton"><option>緊迫感</option><option>輕鬆友善</option><option>數字具體</option></select></div>
-<div><label class="lbl">⑤ 推播管道</label><select class="sel" id="pch"><option>台股APP</option><option>美股APP</option><option>台股+美股APP</option></select></div></div>
-  <div class="fr">
-    <div style="border:1.5px solid var(--bd);border-radius:var(--r);padding:.75rem 1rem;background:var(--g50)">
-      <label class="lbl" style="margin-bottom:.4rem">🎁 行銷碼獎勵（選填）— 自動帶入正確獎勵說法</label>
-      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-        <select class="sel" id="pmk" onchange="onMkChange()" style="background:white;flex:1;min-width:180px">
-          <option value="">— 不指定，使用上方「主要優惠」設定 —</option>
-        </select>
-        <div id="pmk-reward-display" style="display:none;background:white;border:1.5px solid #0F6E56;border-radius:var(--r);padding:.4rem .8rem;font-size:12px;color:#0F6E56;font-weight:700;white-space:nowrap"></div>
-      </div>
-      <div style="font-size:10px;color:var(--g400);margin-top:.35rem">選取行銷碼後，文案會自動把獎勵替換成該碼設定的內容。可至工具 19 設定。</div>
-    </div>
-  </div>
-<div class="fr"><div><label class="lbl">⑥ 補充說明（選填）</label><textarea class="ta" id="pnt" placeholder="例如：這週有特別活動、主管指定關鍵字..." style="min-height:55px"></textarea></div></div>
-<button class="btn bp bb" id="gbt" onclick="gc()">✨ 產生文案</button>
-<div id="gpr" style="display:none;margin-top:.9rem"><div style="font-size:11px;color:var(--g400)">AI 正在依客戶特徵產生文案...</div><div class="pb"><div class="pf" id="gpf" style="width:0%"></div></div></div>
-<div id="pout" style="display:none;margin-top:1.1rem"><div class="dvd" style="margin:.4rem 0 .9rem"></div><div class="lbl" style="margin-bottom:.65rem">產生的文案（3 種版本）</div>
-<div class="cvs" id="cvs"></div>
-<div style="display:flex;gap:7px;margin-top:.9rem;flex-wrap:wrap"><button class="btn bo bsm" onclick="gc()">🔄 重新產生</button><button class="btn bo bsm" onclick="ca()">📋 全部複製</button></div></div>`;}
-function initPush(){
-  const rewards = loadRewards();
-  const sel = document.getElementById('pmk');
-  if(!sel) return;
-  // keep first default option
-  while(sel.options.length > 1) sel.remove(1);
-  // rewards always has data (falls back to DEFAULT_REWARDS)
-  rewards.forEach(r=>{
-    const opt = document.createElement('option');
-    opt.value = r.code;
-    opt.textContent = r.code + (r.name?' — '+r.name:'') + (r.reward?' ｜ '+r.reward:'');
-    sel.appendChild(opt);
-  });
-}
-function onMkChange(){
-  const mkcode = document.getElementById('pmk')?.value||'';
-  const disp = document.getElementById('pmk-reward-display');
-  if(!disp) return;
-  if(!mkcode){ disp.style.display='none'; return; }
-  const rewards = loadRewards();
-  const r = rewards.find(x=>x.code===mkcode);
-  if(r && r.reward){
-    disp.textContent = '🎁 ' + r.reward;
-    disp.style.display = 'block';
-  } else {
-    disp.style.display = 'none';
-  }
-}
-function pss(el,v){document.querySelectorAll('#psg .sgc').forEach(c=>c.classList.remove('on'));el.classList.add('on');const h=document.getElementById('psel');if(h)h.value=v;}
-let gt;
-function gc(){
-  const seg=document.getElementById('psel')?.value||SEGS[0].id;
-  const of=document.getElementById('pof')?.value||'$300 好禮';
-  const tn=document.getElementById('pton')?.value||'緊迫感';
-  const ch=document.getElementById('pch')?.value||'台股APP';
-  document.getElementById('pout').style.display='none';document.getElementById('gpr').style.display='block';document.getElementById('gbt').disabled=true;
-  let p=0;clearInterval(gt);gt=setInterval(()=>{p=Math.min(p+10,90);const el=document.getElementById('gpf');if(el)el.style.width=p+'%';},100);
-  setTimeout(()=>{clearInterval(gt);const el=document.getElementById('gpf');if(el)el.style.width='100%';
-  setTimeout(()=>{const pr=document.getElementById('gpr');if(pr)pr.style.display='none';const gb=document.getElementById('gbt');if(gb)gb.disabled=false;rc(seg,of,tn,ch);},200);},1500);
-}
-function md(tx,of,tn){
-  // Use reward from table if available
-  const rewardLabel = getRewardLabel(of);
-  let t=tx.replace(/\$300好禮/g, rewardLabel);
-  if(tn==='緊迫感')t=t.replace('等你','快截止！');
-  if(tn==='輕鬆友善')t=t.replace(/！/g,'～').replace(/⚡|⏳/g,'');
-  return t;
-}
-function getRewardLabel(of){
-  // First check if current push has a mkcode selected with a reward defined
-  const mkcode = document.getElementById('pmk')?.value||'';
-  if(mkcode){
-    const rewards = loadRewards();
-    const r = rewards.find(x=>x.code===mkcode);
-    if(r && r.reward) return r.reward;
-  }
-  // Fallback to manual offer select
-  if(of.includes('600')) return '$600折抵金';
-  if(of.includes('0.08')) return '0.08%超低費率';
-  if(of.includes('截止')) return '限時好禮';
-  if(of.includes('超商')) return '超商禮品卡';
-  if(of.includes('LINE')) return 'LINE POINT 300點';
-  if(of.includes('小禮')) return '精美小禮物';
-  return '$300好禮';
-}
-function loadRewards(){
-  try{
-    const stored = localStorage.getItem('rewards');
-    if(stored){
-      const parsed = JSON.parse(stored);
-      if(parsed && parsed.length > 0) return parsed;
-    }
-    return DEFAULT_REWARDS.map(r=>Object.assign({},r));
-  }catch(e){ return DEFAULT_REWARDS.map(r=>Object.assign({},r)); }
-}
-function saveRewards(data){
-  localStorage.setItem('rewards', JSON.stringify(data));
-}
-function rc(seg,of,tn,ch){
-  const tpls=CTPLS[seg]||CTPLS['def'];
-  const now=new Date();const ts=now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');
-  const html=['A','B','C'].map((v,i)=>{
-    const tt=md(tpls[v].t,of,tn);const bt=md(tpls[v].b,of,tn);
-    return`<div class="cv">
-      <div class="ctag t${v}"><span>版本 ${v} — ${['直接誘因型','行動引導型','緊迫截止型'][i]}</span><span>${ch}</span></div>
-      <div class="ci">
-        <div style="margin-bottom:.65rem"><div style="font-size:10px;font-weight:700;color:var(--g400);letter-spacing:.04em;text-transform:uppercase;margin-bottom:2px">標題（建議18字內）</div>
-        <div style="font-size:13px;font-weight:700" id="ct${v}">${tt}</div></div>
-        <div><div style="font-size:10px;font-weight:700;color:var(--g400);letter-spacing:.04em;text-transform:uppercase;margin-bottom:2px">內文（建議40字內）</div>
-        <div style="font-size:12px;color:var(--g600);line-height:1.6" id="cb${v}">${bt}</div></div>
-        <div style="display:flex;gap:5px;margin-top:.6rem;flex-wrap:wrap">
-          <button class="btn bo bsm" onclick="cps('${v}')">📋 複製</button>
-          <button class="btn bo bsm" onclick="pvw('${v}','${ts}')">👁 預覽</button>
-        </div>
-        <div id="pv${v}" style="display:none">
-          <div class="pp" style="margin-top:.6rem">
-            <div class="pb2"><span>口袋證券</span><span>${ts}</span></div>
-            <div class="pr"><div class="pi">口</div><div>
-              <div class="pt">${tt}</div><div class="pm">${bt}</div><div class="ptime">口袋證券 · 現在</div>
-            </div></div>
-          </div>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-  document.getElementById('cvs').innerHTML=html;document.getElementById('pout').style.display='block';
-}
-function pvw(v){const el=document.getElementById('pv'+v);if(!el)return;const show=el.style.display==='none';['A','B','C'].forEach(x=>{const e=document.getElementById('pv'+x);if(e)e.style.display='none';});if(show)el.style.display='block';}
-function cps(v){const t=document.getElementById('ct'+v)?.textContent||'';const b=document.getElementById('cb'+v)?.textContent||'';navigator.clipboard.writeText('標題：'+t+'\n內文：'+b).then(()=>alert('已複製版本 '+v));}
-function ca(){let tx='';['A','B','C'].forEach(v=>{const t=document.getElementById('ct'+v)?.textContent;const b=document.getElementById('cb'+v)?.textContent;if(t&&b)tx+='【版本'+v+'】\n標題：'+t+'\n內文：'+b+'\n\n';});navigator.clipboard.writeText(tx.trim()).then(()=>alert('已複製全部3組！'));}
-
-/* ── 03 PUSH PERF ── */
-function guiPerf(){return`
-<p style="font-size:12px;color:var(--g400);margin-bottom:.9rem">輸入每次推播的成效數字，系統自動計算各指標並視覺化趨勢。</p>
-<div id="perfrows"></div>
-<button class="btn bo bsm" onclick="addPerfRow()" style="margin-bottom:.9rem">+ 新增一次推播紀錄</button>
-<button class="btn bp bb" onclick="calcPerf()" style="margin-bottom:.9rem">📊 計算並顯示圖表</button>
-<div id="perfout" style="display:none">
-  <div class="dvd"></div>
-  <div class="sg" id="perfstats"></div>
-  <div class="chart-wrap" style="height:220px"><canvas id="perfChart"></canvas></div>
-  <table class="tbl" id="perftbl"></table>
-</div>`;}
-let perfChart=null;
-function initPerf(){
-  document.getElementById('perfrows').innerHTML='';
-  ['週一 Push（第三方登入）','週二 Push（美股新戶）','週三 Push（推薦禮）'].forEach((label,i)=>addPerfRow(label,[12000,8500,6200][i],[980,720,410][i],[320,210,98][i]));
-}
-function addPerfRow(label='',sent='',open='',click=''){
-  const div=document.createElement('div');div.className='fr c3';div.style.marginBottom='.5rem';div.style.alignItems='end';
-  div.innerHTML=`<div><label class="lbl">名稱/日期</label><input class="inp" value="${label}" placeholder="例：6/10 Push"></div>
-  <div><label class="lbl">發送人數</label><input class="inp" type="number" value="${sent}" placeholder="12000"></div>
-  <div style="display:flex;gap:6px;align-items:flex-end">
-    <div style="flex:1"><label class="lbl">開啟人數</label><input class="inp" type="number" value="${open}" placeholder="980"></div>
-    <div style="flex:1"><label class="lbl">點擊人數</label><input class="inp" type="number" value="${click}" placeholder="320"></div>
-    <button class="btn bo bsm" style="flex-shrink:0;margin-bottom:1px" onclick="this.parentElement.parentElement.remove()">✕</button>
-  </div>`;
-  document.getElementById('perfrows').appendChild(div);
-}
-function calcPerf(){
-  const rows=Array.from(document.querySelectorAll('#perfrows .fr'));
-  const data=rows.map(r=>{const inps=r.querySelectorAll('input');return{label:inps[0].value||'未命名',sent:+inps[1].value||0,open:+inps[2].value||0,click:+inps[3].value||0};}).filter(d=>d.sent>0);
-  if(!data.length)return;
-  const avgOr=(data.reduce((a,d)=>a+d.open/d.sent,0)/data.length*100).toFixed(1);
-  const avgCtr=(data.reduce((a,d)=>a+d.click/d.sent,0)/data.length*100).toFixed(1);
-  const best=data.reduce((a,b)=>b.open/b.sent>a.open/a.sent?b:a);
-  document.getElementById('perfstats').innerHTML=`
-    <div class="sb hi"><div class="sbn">總發送</div><div class="sbv">${data.reduce((a,d)=>a+d.sent,0).toLocaleString()}</div></div>
-    <div class="sb"><div class="sbn">平均開啟率</div><div class="sbv">${avgOr}%</div></div>
-    <div class="sb"><div class="sbn">平均 CTR</div><div class="sbv">${avgCtr}%</div></div>
-    <div class="sb r"><div class="sbn">最佳推播</div><div class="sbv" style="font-size:13px;font-weight:700">${best.label}</div></div>`;
-  const labels=data.map(d=>d.label);
-  const orData=data.map(d=>+(d.open/d.sent*100).toFixed(1));
-  const ctrData=data.map(d=>+(d.click/d.sent*100).toFixed(1));
-  if(perfChart)perfChart.destroy();
-  perfChart=new Chart(document.getElementById('perfChart'),{type:'bar',data:{labels,datasets:[
-    {label:'開啟率 %',data:orData,backgroundColor:'rgba(200,50,26,.7)',borderRadius:3},
-    {label:'CTR %',data:ctrData,backgroundColor:'rgba(200,50,26,.2)',borderRadius:3}
-  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:11}}}},scales:{y:{beginAtZero:true,ticks:{font:{size:10}},grid:{color:'rgba(0,0,0,.05)'}},x:{ticks:{font:{size:10}},grid:{display:false}}}}});
-  document.getElementById('perftbl').innerHTML=`<thead><tr><th>名稱</th><th>發送數</th><th>開啟數</th><th>開啟率</th><th>點擊數</th><th>CTR</th><th>評級</th></tr></thead><tbody>`+
-  data.map(d=>{const or=+(d.open/d.sent*100).toFixed(1);const ctr=+(d.click/d.sent*100).toFixed(1);const cls=or>=8?'pill-g':or>=5?'pill-y':'pill-r';const txt=or>=8?'優秀':or>=5?'正常':'偏低';
-  return`<tr><td><b>${d.label}</b></td><td>${d.sent.toLocaleString()}</td><td>${d.open.toLocaleString()}</td><td><span class="pill ${cls}">${or}%</span></td><td>${d.click.toLocaleString()}</td><td>${ctr}%</td><td><span class="pill ${cls}">${txt}</span></td></tr>`;}).join('')+'</tbody>';
-  document.getElementById('perfout').style.display='block';
-}
-
-/* ── 04 A/B ── */
-function guiAB(){return`
-<p style="font-size:12px;color:var(--g400);margin-bottom:.9rem">貼入兩組文案（標題+內文），系統自動分析並推薦較優版本。</p>
-<div style="display:flex;gap:10px;margin-bottom:.9rem" id="abcols">
-  <div class="ab-col" id="acA"><div style="font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--g400);margin-bottom:.5rem">版本 A</div>
-    <div><label class="lbl">標題</label><input class="inp" id="atA" placeholder="貼入標題" style="margin-bottom:.5rem"></div>
-    <div><label class="lbl">內文</label><textarea class="ta" id="abA" placeholder="貼入內文" style="min-height:70px"></textarea></div>
-  </div>
-  <div class="ab-col" id="acB"><div style="font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--g400);margin-bottom:.5rem">版本 B</div>
-    <div><label class="lbl">標題</label><input class="inp" id="atB" placeholder="貼入標題" style="margin-bottom:.5rem"></div>
-    <div><label class="lbl">內文</label><textarea class="ta" id="abB" placeholder="貼入內文" style="min-height:70px"></textarea></div>
-  </div>
-</div>
-<button class="btn bp bb" onclick="runAB()">⚡ 開始比較</button>
-<div id="about" style="display:none;margin-top:.9rem"></div>`;}
-function runAB(){
-  const tA=document.getElementById('atA')?.value||'';const bA=document.getElementById('abA')?.value||'';
-  const tB=document.getElementById('atB')?.value||'';const bB=document.getElementById('abB')?.value||'';
-  if(!tA&&!bA){alert('請填入版本 A 的文案');return;}
-  const emo=/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{1F300}-\u{1F9FF}]/gu;
-  const score=(t,b)=>{let s=0;const full=t+' '+b;
-    s+=full.length<50?15:full.length<80?10:5;
-    s+=(full.match(emo)||[]).length*3;
-    s+=(full.match(/！|💪|⚡|🔥|👇/g)||[]).length*4;
-    s+=(full.match(/\$\d+|%|\d+元/g)||[]).length*3;
-    s+=(full.match(/現在|立刻|馬上|今天|限時|快/g)||[]).length*2;
-    s+=t.length>=8&&t.length<=20?10:0;
-    return s;
-  };
-  const sA=score(tA,bA);const sB=score(tB,bB);
-  const win=sA>=sB?'A':'B';
-  ['acA','acB'].forEach(id=>document.getElementById(id)?.classList.remove('win'));
-  document.getElementById('ac'+win)?.classList.add('win');
-  const fmt=(t,b,s)=>`<div style="font-size:11px;color:var(--g400);margin-bottom:3px">字元數</div><div style="font-weight:700">${(t+b).length} 字</div>
-  <div style="font-size:11px;color:var(--g400);margin:.4rem 0 3px">Emoji 數</div><div style="font-weight:700">${(t.match(emo)||[]).length+(b.match(emo)||[]).length}</div>
-  <div style="font-size:11px;color:var(--g400);margin:.4rem 0 3px">數字/金額</div><div style="font-weight:700">${(t.match(/\$\d+|%|\d+元/g)||[]).length}</div>
-  <div style="font-size:11px;color:var(--g400);margin:.4rem 0 3px">行動詞</div><div style="font-weight:700">${(t.match(/現在|立刻|馬上|今天|限時|快/g)||[]).length}</div>
-  <div style="font-size:11px;color:var(--g400);margin:.4rem 0 3px">綜合分數</div><div style="font-size:20px;font-weight:900">${s}</div>`;
-  document.getElementById('about').innerHTML=`
-  <div class="dvd"></div>
-  <div style="display:flex;gap:10px">
-    <div style="flex:1;background:var(--g50);border:1.5px solid var(--bd);border-radius:var(--r);padding:.85rem">${fmt(tA,bA,sA)}</div>
-    <div style="flex:1;background:var(--g50);border:1.5px solid var(--bd);border-radius:var(--r);padding:.85rem">${fmt(tB,bB,sB)}</div>
-  </div>
-  <div class="al as" style="margin-top:.75rem">✅ 建議採用<strong>版本 ${win}</strong>（綜合分數 ${sA>=sB?sA:sB}，字元數適中、行動詞與數字密度較高）</div>`;
-  document.getElementById('about').style.display='block';
-}
-
-/* ── 05 TREND ── */
-function guiTrend(){return`
-<p style="font-size:12px;color:var(--g400);margin-bottom:.9rem">手動輸入各週各分類的名單人數，追蹤趨勢變化。</p>
-<div id="trendrows"><div class="fr c3" style="margin-bottom:.35rem">
-  <div><label class="lbl">週次/日期</label><input class="inp" id="tw0" value="5/26週"></div>
-  <div><label class="lbl">未開通交易</label><input class="inp" type="number" id="tn0" value="478"></div>
-  <div><label class="lbl">有入金</label><input class="inp" type="number" id="ti0" value="193"></div>
-</div><div class="fr c3" style="margin-bottom:.35rem">
-  <div><input class="inp" id="tw1" value="6/2週"></div>
-  <div><input class="inp" type="number" id="tn1" value="512"></div>
-  <div><input class="inp" type="number" id="ti1" value="201"></div>
-</div><div class="fr c3" style="margin-bottom:.35rem">
-  <div><input class="inp" id="tw2" value="6/9週"></div>
-  <div><input class="inp" type="number" id="tn2" value="433"></div>
-  <div><input class="inp" type="number" id="ti2" value="187"></div>
-</div></div>
-<button class="btn bp bb" onclick="calcTrend()">📈 畫趨勢圖</button>
-<div id="trendout" style="display:none"><div class="dvd"></div><div class="chart-wrap" style="height:230px"><canvas id="trendChart"></canvas></div></div>`;}
-let trendChart=null;
-function initTrend(){}
-function calcTrend(){
-  const labels=[];const d1=[];const d2=[];
-  for(let i=0;i<10;i++){const tw=document.getElementById('tw'+i);if(!tw||!tw.value)break;labels.push(tw.value);d1.push(+(document.getElementById('tn'+i)?.value||0));d2.push(+(document.getElementById('ti'+i)?.value||0));}
-  if(!labels.length)return;
-  if(trendChart)trendChart.destroy();
-  trendChart=new Chart(document.getElementById('trendChart'),{type:'line',data:{labels,datasets:[
-    {label:'未開通交易',data:d1,borderColor:'#C8321A',backgroundColor:'rgba(200,50,26,.1)',tension:.3,fill:true,pointRadius:4},
-    {label:'有入金',data:d2,borderColor:'#185FA5',backgroundColor:'rgba(24,95,165,.1)',tension:.3,fill:true,pointRadius:4}
-  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:11}}}},scales:{y:{beginAtZero:true,ticks:{font:{size:10}},grid:{color:'rgba(0,0,0,.05)'}},x:{ticks:{font:{size:10}},grid:{display:false}}}}});
-  document.getElementById('trendout').style.display='block';
-}
-
-/* ── 06 CHECKLIST ── */
+/* ═══════════════════════════════════════════
+   02 CHECKLIST
+═══════════════════════════════════════════ */
 const CHECKS=[
   {cat:'APP',items:['APP BN 素材已更換並確認上架時間','APP 彈窗內容與連結已更新','APP Push 名單已更新至最新日期','Push 文案與 LINK 已確認正確','舊活動 BN / 彈窗已下架']},
   {cat:'官網',items:['官網首頁 BN 已替換','活動專區 BN 已更新','VWO OTP 圖片已確認','官網活動連結均可正常開啟']},
@@ -656,816 +523,512 @@ const CHECKS=[
   {cat:'行銷碼',items:['本月新行銷碼已加入對照表','各管道 UTM 參數已設定','名單整理工具行銷碼對照已同步更新']},
 ];
 function guiChecklist(){
-  const saved=JSON.parse(localStorage.getItem('chk')||'{}');
-  let html='<p style="font-size:12px;color:var(--g400);margin-bottom:.9rem">每月換檔作業清單，勾選後自動儲存進度。</p>';
+  const saved=ls('chk',{});
+  let html='<p style="font-size:12px;color:var(--g400);margin-bottom:.85rem">每月換檔作業清單，勾選後自動儲存進度。</p>';
+  let total=0,done=0;
   CHECKS.forEach(cat=>{
-    html+=`<div style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--g400);margin:.9rem 0 .3rem">${cat.cat}</div>`;
+    html+=`<div style="font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--g400);margin:.85rem 0 .3rem">${cat.cat}</div>`;
     cat.items.forEach((item,j)=>{
-      const key=cat.cat+'_'+j;const ck=saved[key];
-      html+=`<div class="cl-item" onclick="toggleCk(this,'${key}')">
-        <div class="cl-cb${ck?' ck':''}">${ck?'✓':''}</div>
-        <div class="cl-label" style="${ck?'text-decoration:line-through;color:var(--g400)':''}">${item}</div>
-      </div>`;
+      const key=cat.cat+'_'+j;const ck=saved[key];total++;if(ck)done++;
+      html+=`<div class="cl-item" onclick="toggleCk(this,'${key}')"><div class="cl-cb${ck?' ck':''}">${ck?'✓':''}</div><div style="font-size:12px;${ck?'text-decoration:line-through;color:var(--g400)':''}">${item}</div></div>`;
     });
   });
-  html+=`<div style="display:flex;gap:7px;margin-top:1rem">
-    <button class="btn bp bsm" onclick="saveChk()">💾 儲存進度</button>
-    <button class="btn bo bsm" onclick="resetChk()">🗑 清除重置</button>
-  </div>`;
+  const pct=total?Math.round(done/total*100):0;
+  html=`<div style="margin-bottom:.85rem"><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px"><span style="font-weight:700">完成進度</span><span style="color:var(--g400)">${done}/${total}</span></div><div style="background:var(--g100);border-radius:3px;height:7px;overflow:hidden"><div style="width:${pct}%;height:100%;background:${pct===100?'var(--grn)':'var(--red)'};border-radius:3px;transition:width .3s"></div></div></div>`+html;
+  html+=`<div style="display:flex;gap:7px;margin-top:1rem"><button class="btn bp bsm" onclick="saveChk()">💾 儲存進度</button><button class="btn bo bsm" onclick="resetChk()">🗑 清除重置</button></div>`;
   return html;
 }
-function toggleCk(el,key){
-  const cb=el.querySelector('.cl-cb');const lbl=el.querySelector('.cl-label');
-  const isOn=cb.classList.toggle('ck');
-  cb.textContent=isOn?'✓':'';
-  lbl.style.textDecoration=isOn?'line-through':'';
-  lbl.style.color=isOn?'var(--g400)':'';
-  const saved=JSON.parse(localStorage.getItem('chk')||'{}');
-  saved[key]=isOn;localStorage.setItem('chk',JSON.stringify(saved));
-}
-function saveChk(){alert('進度已儲存！下次開啟工具會自動恢復。');}
-function resetChk(){if(confirm('確定清除所有進度？')){localStorage.removeItem('chk');document.getElementById('mbody').innerHTML=guiChecklist();}}
+function toggleCk(el,key){const cb=el.querySelector('.cl-cb');const lbl=el.children[1];const on=cb.classList.toggle('ck');cb.textContent=on?'✓':'';lbl.style.textDecoration=on?'line-through':'';lbl.style.color=on?'var(--g400)':'';const s=ls('chk',{});s[key]=on;lss('chk',s);}
+function saveChk(){alert('進度已儲存！');}
+function resetChk(){if(confirm('確定清除所有進度？')){lss('chk',{});document.getElementById('mbody').innerHTML=guiChecklist();}}
 
-/* ── 07 COUNTER ── */
-function guiCounter(){return`
-<div class="fr"><div><label class="lbl">貼入標題或內文</label>
-  <textarea class="ta" id="ctin" placeholder="貼入 Push 標題或內文文字..." style="min-height:90px" oninput="doCount()"></textarea></div></div>
-<div id="ctout" style="display:none">
-  <div class="sg" id="ctstats"></div>
-  <div id="ctwarn" style="font-size:12px;margin-top:.25rem"></div>
+/* ═══════════════════════════════════════════
+   03 MKCODE
+═══════════════════════════════════════════ */
+const MK_DATA=[
+  {code:'MK0000',ch:'1.官方',sheet:'新戶禮',desc:'官方預設碼'},{code:'MKADAP',ch:'3.Ads',sheet:'MKADAP.MKAD03',desc:'廣告投放AP'},{code:'MKADCH',ch:'3.Ads',sheet:'MKADCH',desc:'廣告投放CH'},
+  {code:'MKADGO',ch:'3.Ads',sheet:'MKADGO',desc:'廣告GO'},{code:'MKADET',ch:'3.Ads',sheet:'新戶禮',desc:'廣告ET'},{code:'MKUS01',ch:'1.官方',sheet:'MKUS01',desc:'美股官方'},
+  {code:'MKLIFI',ch:'8.外部',sheet:'MKLIFI',desc:'Lifi合作'},{code:'MKKB01',ch:'6.KOL',sheet:'MKKB01',desc:'KOL B01'},{code:'MKKB02',ch:'6.KOL',sheet:'新戶禮',desc:'KOL B02'},
+  {code:'MKCM07',ch:'7.CMoney',sheet:'MKCM07',desc:'CMoney'},{code:'MKK040',ch:'7.CMoney',sheet:'MKK040',desc:'CMoney 040'},{code:'MKK110',ch:'7.CMoney',sheet:'MKK110',desc:'CMoney 110'},
+  {code:'MKK021',ch:'7.CMoney',sheet:'MKK021.MKK022',desc:'CMoney 021'},{code:'MKK022',ch:'7.CMoney',sheet:'MKK021.MKK022',desc:'CMoney 022'},{code:'MKK020',ch:'7.CMoney',sheet:'MKK020',desc:'CMoney 020'},
+  {code:'MKBKEE',ch:'5.銀行',sheet:'MKBKEE',desc:'KEE銀行'},{code:'MKBPAY',ch:'5.銀行',sheet:'MKBPAY',desc:'PAY銀行'},{code:'MKBCHP',ch:'5.銀行',sheet:'MKBCHP',desc:'CHP銀行'},
+  {code:'MKL031',ch:'4.LINE',sheet:'MKL031',desc:'LINE 031'},{code:'MK0P11',ch:'1.官方',sheet:'新戶禮',desc:'官方活動碼'},{code:'MKALL1',ch:'1.官方',sheet:'新戶禮',desc:'全客群'},
+  {code:'MKAD03',ch:'3.Ads',sheet:'MKADAP.MKAD03',desc:'廣告AD03'},{code:'MKK113',ch:'7.CMoney',sheet:'MKK113',desc:'CMoney 113'},
+];
+function guiMkCode(){return`<div style="display:flex;gap:7px;margin-bottom:.75rem;align-items:center"><svg style="width:14px;height:14px;color:var(--g400);flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><input class="inp" id="mks" placeholder="搜尋行銷碼..." oninput="renderMkTbl()"></div><table class="tbl" id="mktbl"></table>`;}
+function renderMkTbl(){
+  const q=(document.getElementById('mks')?.value||'').toUpperCase();
+  const rws=MK_DATA.filter(d=>!q||d.code.includes(q)||d.ch.includes(q)||d.sheet.includes(q));
+  const rewards=loadRewards();
+  document.getElementById('mktbl').innerHTML='<thead><tr><th>行銷碼</th><th>管道</th><th>工作表</th><th>獎勵內容</th><th>說明</th></tr></thead><tbody>'+
+  rws.map(d=>{const rw=rewards.find(r=>r.code===d.code);return`<tr><td><code style="font-family:monospace;font-weight:700;color:var(--red)">${d.code}</code></td><td>${d.ch}</td><td><span class="pill pb3">${d.sheet}</span></td><td style="color:var(--grn);font-weight:600">${rw?rw.reward:'-'}</td><td style="color:var(--g600)">${d.desc}</td></tr>`;}).join('')+'</tbody>';
+}
+
+/* ═══════════════════════════════════════════
+   04 ADVANCED FILTER (合併 14-18)
+═══════════════════════════════════════════ */
+function guiAdvanced(){return`
+<p style="font-size:12px;color:var(--g400);margin-bottom:.85rem">依多個條件篩選本週名單，即時預覽人數，一鍵匯出精準分眾名單。</p>
+<div id="adv-src"></div>
+<div id="adv-stats" style="display:none;margin-bottom:.85rem"></div>
+<div id="adv-filters" style="display:none">
+  <div class="dvd" style="margin:.5rem 0 .85rem"></div>
+  <div class="sec-lbl">篩選條件</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:.85rem">
+    <div style="border:1.5px solid var(--bd);border-radius:var(--r);padding:.8rem;background:#fff">
+      <div style="font-size:12px;font-weight:700;margin-bottom:.55rem">💰 入金狀態</div>
+      ${['all:全部','Y:✅ 已入金（推選股邏輯）','N:❌ 未入金（推入金教學）'].map((x,i)=>{const[v,l]=x.split(':');return`<label style="display:flex;align-items:center;gap:6px;font-size:11px;cursor:pointer;margin-bottom:.35rem"><input type="radio" name="rdep" value="${v}" ${i===0?'checked':''} onchange="previewAdv()"> ${l}</label>`;}).join('')}
+    </div>
+    <div style="border:1.5px solid var(--bd);border-radius:var(--r);padding:.8rem;background:#fff">
+      <div style="font-size:12px;font-weight:700;margin-bottom:.55rem">📱 APP 活躍度（台股最後登入）</div>
+      ${['all:全部','hot:🔥 高活躍（3天內）','warm:🌡 溫和（4-7天）','cold:🥶 沉睡（超過7天）'].map((x,i)=>{const[v,l]=x.split(':');return`<label style="display:flex;align-items:center;gap:6px;font-size:11px;cursor:pointer;margin-bottom:.35rem"><input type="radio" name="ract" value="${v}" ${i===0?'checked':''} onchange="previewAdv()"> ${l}</label>`;}).join('')}
+    </div>
+    <div style="border:1.5px solid var(--bd);border-radius:var(--r);padding:.8rem;background:#fff">
+      <div style="font-size:12px;font-weight:700;margin-bottom:.55rem">🌏 開通市場</div>
+      ${['all:全部','tw:🇹🇼 僅台股（推坑美股）','both:🌐 台美雙開（推美股交易）'].map((x,i)=>{const[v,l]=x.split(':');return`<label style="display:flex;align-items:center;gap:6px;font-size:11px;cursor:pointer;margin-bottom:.35rem"><input type="radio" name="rmkt" value="${v}" ${i===0?'checked':''} onchange="previewAdv()"> ${l}</label>`;}).join('')}
+    </div>
+    <div style="border:1.5px solid var(--bd);border-radius:var(--r);padding:.8rem;background:#fff">
+      <div style="font-size:12px;font-weight:700;margin-bottom:.55rem">⏰ 開戶天數</div>
+      ${['all:全部','urgent:🚨 20-29天（最急迫！）','mid:⚡ 7-19天','new:🌱 1-6天（剛開戶）'].map((x,i)=>{const[v,l]=x.split(':');return`<label style="display:flex;align-items:center;gap:6px;font-size:11px;cursor:pointer;margin-bottom:.35rem"><input type="radio" name="rdays" value="${v}" ${i===0?'checked':''} onchange="previewAdv()"> ${l}</label>`;}).join('')}
+    </div>
+  </div>
+  <div id="adv-preview"></div>
+  <div id="adv-hint"></div>
+  <button class="btn bp bb" onclick="exportAdv()">⬇ 匯出篩選名單</button>
 </div>`;}
+function initAdv(){
+  const el=document.getElementById('adv-src');
+  if(gRows){
+    const dep_y=gRows.filter(r=>(r['入金']||'').toString().trim()==='Y').length;
+    const hot=gRows.filter(r=>daysSince(r['台股app最後登入日'])<=3&&r['台股app最後登入日']).length;
+    const both=gRows.filter(r=>(r['美股開戶']||'').toString().trim()==='Y').length;
+    const urgent=gRows.filter(r=>{const d=daysSince(r['開戶日期']);return d>=20&&d<=29;}).length;
+    el.innerHTML=`<div class="al as2">✅ 使用頂部名單：<strong>${gFileName}</strong>（${gRows.length.toLocaleString()} 筆）</div>`;
+    document.getElementById('adv-stats').innerHTML=`<div class="sg"><div class="sb hi"><div class="sbn">總人數</div><div class="sbv">${gRows.length.toLocaleString()}</div></div><div class="sb r"><div class="sbn">已入金</div><div class="sbv">${dep_y.toLocaleString()}</div></div><div class="sb g"><div class="sbn">高活躍</div><div class="sbv">${hot.toLocaleString()}</div></div><div class="sb"><div class="sbn">🚨 急迫(20-29天)</div><div class="sbv">${urgent.toLocaleString()}</div></div></div>`;
+    document.getElementById('adv-stats').style.display='block';
+    document.getElementById('adv-filters').style.display='block';
+    previewAdv();
+  }else{
+    el.innerHTML=noFileNotice('進階篩選');
+  }
+}
+function getAdvFiltered(){
+  if(!gRows)return[];
+  const dep=document.querySelector('input[name=rdep]:checked')?.value||'all';
+  const act=document.querySelector('input[name=ract]:checked')?.value||'all';
+  const mkt=document.querySelector('input[name=rmkt]:checked')?.value||'all';
+  const days=document.querySelector('input[name=rdays]:checked')?.value||'all';
+  return gRows.filter(r=>{
+    const dv=(r['入金']||'').toString().trim();
+    const ld=daysSince(r['台股app最後登入日']);
+    const hasUs=(r['美股開戶']||'').toString().trim()==='Y';
+    const od=daysSince(r['開戶日期']);
+    if(dep==='Y'&&dv!=='Y')return false;
+    if(dep==='N'&&dv!=='N')return false;
+    if(act==='hot'&&!(ld<=3&&r['台股app最後登入日']))return false;
+    if(act==='warm'&&!(ld>=4&&ld<=7))return false;
+    if(act==='cold'&&ld<=7)return false;
+    if(mkt==='tw'&&hasUs)return false;
+    if(mkt==='both'&&!hasUs)return false;
+    if(days==='urgent'&&!(od>=20&&od<=29))return false;
+    if(days==='mid'&&!(od>=7&&od<=19))return false;
+    if(days==='new'&&!(od>=1&&od<=6))return false;
+    return true;
+  });
+}
+const ADV_HINTS={'dep=Y,act=hot':'💡 已入金 × 高活躍 → 直接推精選股票或熱門ETF殖利率排行，他們只差「買什麼」的答案','dep=Y,act=cold':'💡 已入金 × 沉睡 → 用「你的資金還在帳上睡覺 💤」喚醒，搭配好禮到期倒數','dep=N,act=hot':'💡 未入金 × 高活躍 → 推「3分鐘圖文入金教學」，降低門檻','dep=N,act=cold':'💡 未入金 × 沉睡 → 標題要聳動，「⚠️ 你的好禮快白白消失了」','days=urgent':'🚨 最急迫名單！開戶20-29天，新戶禮快到期，這組轉換率最高，優先排程發送','mkt=tw':'💡 僅台股 → 推「一鍵加開美股，捕捉全球趨勢」','mkt=both':'💡 台美雙開 → 「PYPL、SOFI還是VOO？美股首筆再享LINE POINT 300」'};
+function previewAdv(){
+  const result=getAdvFiltered();
+  const total=gRows?gRows.length:1;
+  const pct=(result.length/total*100).toFixed(1);
+  document.getElementById('adv-preview').innerHTML=result.length>0?`<div class="al as2">✅ 符合條件：<strong>${result.length.toLocaleString()} 人</strong>（佔 ${pct}%）</div>`:`<div class="al ae">目前條件下沒有符合的客戶</div>`;
+  const dep=document.querySelector('input[name=rdep]:checked')?.value||'all';
+  const act=document.querySelector('input[name=ract]:checked')?.value||'all';
+  const days=document.querySelector('input[name=rdays]:checked')?.value||'all';
+  const mkt=document.querySelector('input[name=rmkt]:checked')?.value||'all';
+  const hint=days==='urgent'?ADV_HINTS['days=urgent']:ADV_HINTS[`dep=${dep},act=${act}`]||(mkt!=='all'?ADV_HINTS[`mkt=${mkt}`]:'');
+  document.getElementById('adv-hint').innerHTML=hint?`<div class="al aw">${hint}</div>`:'';
+}
+function exportAdv(){exportRows(getAdvFiltered(),'精準名單');}
+
+/* ═══════════════════════════════════════════
+   05 FUNNEL (auto from global)
+═══════════════════════════════════════════ */
+let fChart=null;
+function guiFunnel(){return`
+<div id="funnel-src"></div>
+<div class="fr c2" style="margin-top:.65rem">
+  <div><label class="lbl">① 開戶人數</label><input class="inp" id="f1" type="number" oninput="drawFunnel()"></div>
+  <div><label class="lbl">② 開通交易人數</label><input class="inp" id="f2" type="number" oninput="drawFunnel()"></div>
+</div>
+<div class="fr c2">
+  <div><label class="lbl">③ 入金人數</label><input class="inp" id="f3" type="number" oninput="drawFunnel()"></div>
+  <div><label class="lbl">④ 完成交易人數</label><input class="inp" id="f4" type="number" oninput="drawFunnel()"></div>
+</div>
+<div id="fout" style="margin-top:.75rem"></div>`;}
+function initFunnel(){
+  const el=document.getElementById('funnel-src');
+  if(gRows){
+    // Auto-fill from global rows
+    const f1=gRows.length;
+    const f2=gRows.filter(r=>(r['開通交易']||r['台股開通']||'').toString().trim()==='Y'||(r['分類樣態']||'').toString().includes('開通')).length||Math.round(f1*0.67);
+    const f3=gRows.filter(r=>(r['入金']||'').toString().trim()==='Y').length;
+    const f4=gRows.filter(r=>(r['分類樣態']||'').toString().includes('交易')).length||0;
+    document.getElementById('f1').value=f1;
+    document.getElementById('f2').value=f2;
+    document.getElementById('f3').value=f3;
+    document.getElementById('f4').value=f4;
+    el.innerHTML=`<div class="al as2">✅ 已從名單自動帶入數字，可手動調整。</div>`;
+  }else{
+    el.innerHTML=noFileNotice('漏斗分析')+'<div class="al ai" style="margin-top:.35rem">你也可以手動填入以下數字。</div>';
+    ['f1','f2','f3','f4'].forEach((id,i)=>{document.getElementById(id).value=[2677,1800,420,180][i];});
+  }
+  setTimeout(drawFunnel,100);
+}
+function drawFunnel(){
+  const v=[+document.getElementById('f1')?.value||0,+document.getElementById('f2')?.value||0,+document.getElementById('f3')?.value||0,+document.getElementById('f4')?.value||0];
+  const labels=['開戶','開通交易','入金','完成交易'];
+  const colors=['#C8321A','#D4543C','#E07060','#ECA094'];
+  const html=v.map((val,i)=>{
+    const pct=i===0?100:+(val/(v[0]||1)*100).toFixed(1);
+    const step=i>0?+(val/(v[i-1]||1)*100).toFixed(1):100;
+    return`<div class="fbar-wrap"><div class="fbar-row"><span class="fbar-lbl">${labels[i]}</span><div class="fbar-bg"><div class="fbar-fill" style="width:${Math.max(pct,3)}%;background:${colors[i]}"><span class="fbar-pct">${pct}%</span></div></div><span class="fbar-num">${val.toLocaleString()} 人 ${i>0?`(上步${step}%)`:''}</span></div></div>`;
+  }).join('');
+  const bl=v.reduce((bi,val,i)=>i>0&&(val/(v[i-1]||1))<(v[bi]/(v[bi-1]||1))?i:bi,1);
+  document.getElementById('fout').innerHTML=html+`<div class="al aw" style="margin-top:.75rem">⚠ 最大流失點：<strong>${labels[bl]}</strong>（轉換率 ${+(v[bl]/(v[bl-1]||1)*100).toFixed(1)}%），建議加強這個階段的推播力度。</div>`;
+}
+
+/* ═══════════════════════════════════════════
+   06 PUSH
+═══════════════════════════════════════════ */
+function guiPush(){return`
+<div class="sec-lbl" style="margin-bottom:.6rem">① 選擇客戶分類</div>
+<div class="segg" id="psg">${SEGS.map((s,i)=>`<div class="sgc${i===0?' on':''}" onclick="pss(this,'${s.id}')"><div class="si">${s.ic}</div><div class="sn">${s.n}</div><div class="sd">${s.d}</div></div>`).join('')}</div>
+<input type="hidden" id="psel" value="${SEGS[0].id}">
+<div id="push-timing">${renderTiming(SEGS[0].id)}</div>
+<div class="dvd"></div>
+<div class="fr c2">
+  <div><label class="lbl">② 推播目標</label><select class="sel" id="pgl"><option>首次下單</option><option>開通交易</option><option>入金</option><option>美股首單</option><option>領取新戶禮</option></select></div>
+  <div><label class="lbl">③ 語氣風格</label><select class="sel" id="pton"><option>緊迫感</option><option>輕鬆友善</option><option>數字具體</option></select></div>
+</div>
+<div class="fr">
+  <div style="border:1.5px solid var(--bd);border-radius:var(--r);padding:.75rem 1rem;background:var(--g50)">
+    <label class="lbl" style="margin-bottom:.4rem">🎁 行銷碼獎勵（自動帶入）</label>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <select class="sel" id="pmk" onchange="onMkChg()" style="background:#fff;flex:1;min-width:160px"><option value="">— 不指定 —</option></select>
+      <div id="pmk-disp" style="display:none;background:#fff;border:1.5px solid var(--grn);border-radius:var(--r);padding:.35rem .75rem;font-size:12px;color:var(--grn);font-weight:700;white-space:nowrap"></div>
+    </div>
+  </div>
+</div>
+<button class="btn bp bb" id="gbt" onclick="gc()">✨ 產生文案</button>
+<div id="gpr" style="display:none;margin-top:.75rem"><div style="font-size:11px;color:var(--g400)">產生中...</div><div class="pb"><div class="pf" id="gpf" style="width:0%"></div></div></div>
+<div id="pout" style="display:none;margin-top:1rem">
+  <div class="dvd" style="margin:.4rem 0 .8rem"></div>
+  <div class="sec-lbl" style="margin-bottom:.65rem">產生的文案（3 種版本）</div>
+  <div class="cvs" id="cvs"></div>
+  <div style="display:flex;gap:7px;margin-top:.85rem;flex-wrap:wrap"><button class="btn bo bsm" onclick="gc()">🔄 重新產生</button><button class="btn bo bsm" onclick="caAll()">📋 全部複製</button></div>
+</div>`;}
+function initPush(){
+  const tw=document.getElementById('push-timing');
+  if(tw)tw.innerHTML=renderTiming(SEGS[0].id);
+  const rws=loadRewards();
+  const sel=document.getElementById('pmk');if(!sel)return;
+  while(sel.options.length>1)sel.remove(1);
+  rws.forEach(r=>{const o=document.createElement('option');o.value=r.code;o.textContent=r.code+(r.name?' — '+r.name:'')+(r.reward?' ｜ '+r.reward:'');sel.appendChild(o);});
+}
+function pss(el,v){
+  document.querySelectorAll('#psg .sgc').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  const h=document.getElementById('psel');if(h)h.value=v;
+  const tw=document.getElementById('push-timing');
+  if(tw)tw.innerHTML=renderTiming(v);
+}
+function onMkChg(){
+  const mk=document.getElementById('pmk')?.value||'';
+  const disp=document.getElementById('pmk-disp');if(!disp)return;
+  if(!mk){disp.style.display='none';return;}
+  const r=loadRewards().find(x=>x.code===mk);
+  if(r&&r.reward){disp.textContent='🎁 '+r.reward;disp.style.display='block';}else{disp.style.display='none';}
+}
+function getReward(){
+  const mk=document.getElementById('pmk')?.value||'';
+  if(mk){const r=loadRewards().find(x=>x.code===mk);if(r&&r.reward)return r.reward;}
+  return '$300好禮';
+}
+let gt2;
+function gc(){
+  const seg=document.getElementById('psel')?.value||SEGS[0].id;
+  const tn=document.getElementById('pton')?.value||'緊迫感';
+  document.getElementById('pout').style.display='none';
+  document.getElementById('gpr').style.display='block';
+  document.getElementById('gbt').disabled=true;
+  let p=0;clearInterval(gt2);gt2=setInterval(()=>{p=Math.min(p+10,90);const el=document.getElementById('gpf');if(el)el.style.width=p+'%';},100);
+  setTimeout(()=>{clearInterval(gt2);const pf=document.getElementById('gpf');if(pf)pf.style.width='100%';
+  setTimeout(()=>{const gpr=document.getElementById('gpr');if(gpr)gpr.style.display='none';const gb=document.getElementById('gbt');if(gb)gb.disabled=false;rcopy(seg,tn);},200);},1500);
+}
+function applyTpl(txt,reward,tn){
+  let t=txt.replace(/\{獎勵\}/g,reward);
+  if(tn==='緊迫感')t=t.replace(/等你(?!出手)/g,'快截止！').replace('立刻','⚡限時');
+  if(tn==='輕鬆友善')t=t.replace(/！/g,'～').replace(/⚡|⏳/g,'');
+  return t;
+}
+function rcopy(seg,tn){
+  const tpls=CTPLS[seg]||CTPLS['def'];
+  const reward=getReward();
+  const now=new Date();const ts=now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');
+  const html=['A','B','C'].map((v,i)=>{
+    const tt=applyTpl(tpls[v].t,reward,tn);const bt=applyTpl(tpls[v].b,reward,tn);
+    return`<div class="cv"><div class="ctag t${v}"><span>版本 ${v} — ${['直接誘因型','行動引導型','緊迫截止型'][i]}</span></div>
+    <div class="ci">
+      <div style="margin-bottom:.6rem"><div style="font-size:10px;font-weight:700;color:var(--g400);letter-spacing:.04em;text-transform:uppercase;margin-bottom:2px">標題（18字內）</div><div style="font-size:13px;font-weight:700" id="ct${v}">${tt}</div></div>
+      <div><div style="font-size:10px;font-weight:700;color:var(--g400);letter-spacing:.04em;text-transform:uppercase;margin-bottom:2px">內文（40字內）</div><div style="font-size:12px;color:var(--g600);line-height:1.6" id="cb${v}">${bt}</div></div>
+      <div style="display:flex;gap:5px;margin-top:.55rem;flex-wrap:wrap">
+        <button class="btn bo bsm" onclick="cpSingle('${v}')">📋 複製</button>
+        <button class="btn bo bsm" onclick="pvw('${v}','${ts}')">👁 預覽</button>
+      </div>
+      <div id="pv${v}" style="display:none"><div class="pp" style="margin-top:.55rem"><div class="pb2"><span>口袋證券</span><span>${ts}</span></div>
+      <div class="pr"><div class="pi">口</div><div><div style="font-size:12px;font-weight:700;margin-bottom:2px">${tt}</div><div style="font-size:11px;color:var(--g600);line-height:1.5">${bt}</div><div style="font-size:10px;color:var(--g400);margin-top:2px">口袋證券 · 現在</div></div></div></div></div>
+    </div></div>`;
+  }).join('');
+  document.getElementById('cvs').innerHTML=html;document.getElementById('pout').style.display='block';
+}
+function pvw(v){const el=document.getElementById('pv'+v);if(!el)return;const show=el.style.display==='none';['A','B','C'].forEach(x=>{const e=document.getElementById('pv'+x);if(e)e.style.display='none';});if(show)el.style.display='block';}
+function cpSingle(v){const t=document.getElementById('ct'+v)?.textContent||'';const b=document.getElementById('cb'+v)?.textContent||'';navigator.clipboard.writeText('標題：'+t+'\n內文：'+b).then(()=>alert('已複製版本 '+v));}
+function caAll(){let tx='';['A','B','C'].forEach(v=>{const t=document.getElementById('ct'+v)?.textContent;const b=document.getElementById('cb'+v)?.textContent;if(t&&b)tx+='【版本'+v+'】\n標題：'+t+'\n內文：'+b+'\n\n';});navigator.clipboard.writeText(tx.trim()).then(()=>alert('已複製全部3組！'));}
+
+/* ═══════════════════════════════════════════
+   07 SUBJECT
+═══════════════════════════════════════════ */
+function guiSubject(){return`<p style="font-size:12px;color:var(--g400);margin-bottom:.85rem">輸入關鍵資訊，自動產生 5 組 Email / LINE 主旨行。</p>
+<div class="fr c2"><div><label class="lbl">主題關鍵字</label><input class="inp" id="sk" placeholder="新戶禮、美股、推薦好友"></div><div><label class="lbl">優惠內容</label><input class="inp" id="so" placeholder="$300好禮、$600折抵金"></div></div>
+<div class="fr c2"><div><label class="lbl">情境</label><select class="sel" id="sctx"><option>開戶未交易</option><option>活動即將截止</option><option>新功能上線</option><option>推薦好友</option></select></div><div><label class="lbl">語氣</label><select class="sel" id="stn"><option>緊迫感</option><option>利益導向</option><option>好奇引發</option></select></div></div>
+<button class="btn bp bb" onclick="genSubject()">✨ 產生主旨行</button><div id="sout" style="display:none;margin-top:.85rem"></div>`;}
+function genSubject(){
+  const k=document.getElementById('sk')?.value||'新戶禮';const o=document.getElementById('so')?.value||'$300好禮';const tn=document.getElementById('stn')?.value||'緊迫感';
+  const tmps={'緊迫感':[`⏳ ${o}快截止了！${k}現在行動`,`限時提醒：你的${o}還沒領`,`不領嗎？${o}只剩最後幾天`,`${k}好禮即將過期，現在領取`,`⚡ 倒數計時！${o}等你拿走`],'利益導向':[`投資第一步，就送${o}`,`新手必看：${k}享${o}超值優惠`,`${o}免費拿！${k}限定方案`,`一筆交易，賺回${o}`,`${k}用戶獨享：${o}福利說明`],'好奇引發':[`你知道${k}可以直接拿${o}嗎？`,`很多人不知道的${k}好禮`,`打開看看：你的${o}還沒領`,`${k}用戶有個秘密福利...`,`我們準備了${o}給你，打開確認`]};
+  const rs=(tmps[tn]||tmps['緊迫感']);
+  document.getElementById('sout').innerHTML='<div class="dvd"></div>'+rs.map((r,i)=>`<div style="border:1.5px solid var(--bd);border-radius:var(--r);padding:.55rem .85rem;margin-bottom:.45rem;background:#fff;display:flex;align-items:center;justify-content:space-between;gap:8px"><div><div style="font-size:10px;font-weight:700;color:var(--g400);margin-bottom:1px">主旨 ${i+1} · ${r.length}字</div><div style="font-size:12px;font-weight:600">${r}</div></div><button class="btn bo bsm" style="flex-shrink:0" onclick="navigator.clipboard.writeText('${r.replace(/'/g,"\\'")}').then(()=>alert('已複製！'))">複製</button></div>`).join('');
+  document.getElementById('sout').style.display='block';
+}
+
+/* ═══════════════════════════════════════════
+   08 COUNTER
+═══════════════════════════════════════════ */
+function guiCounter(){return`<div class="fr"><div><label class="lbl">貼入標題或內文</label><textarea class="ta" id="ctin" placeholder="貼入 Push 文字..." style="min-height:90px" oninput="doCount()"></textarea></div></div><div id="ctout" style="display:none"><div class="sg" id="ctstats"></div><div id="ctwarn" style="font-size:12px;margin-top:.2rem"></div></div>`;}
 function doCount(){
   const txt=document.getElementById('ctin')?.value||'';
   if(!txt){document.getElementById('ctout').style.display='none';return;}
   const zh=(txt.match(/[\u4e00-\u9fff\u3400-\u4dbf\uff00-\uffef]/g)||[]).length;
   const en=txt.replace(/[\u4e00-\u9fff\u3400-\u4dbf\uff00-\uffef\s]/g,'').length;
-  document.getElementById('ctstats').innerHTML=`
-    <div class="sb hi"><div class="sbn">總字元</div><div class="sbv">${txt.length}</div></div>
-    <div class="sb"><div class="sbn">中文字</div><div class="sbv">${zh}</div></div>
-    <div class="sb"><div class="sbn">英數字</div><div class="sbv">${en}</div></div>
-    <div class="sb"><div class="sbn">行數</div><div class="sbv">${txt.split('\n').length}</div></div>`;
-  const w=txt.length>40?'⚠️ 超過40字元，iOS 通知可能截斷':txt.length>30?'💡 接近截斷上限，建議精簡':'✅ 字元數適中，不易截斷';
-  document.getElementById('ctwarn').innerHTML=`<span style="color:${txt.length>40?'var(--red)':txt.length>30?'#854F0B':'#0F6E56'}">${w}</span>`;
+  document.getElementById('ctstats').innerHTML=`<div class="sb hi"><div class="sbn">總字元</div><div class="sbv">${txt.length}</div></div><div class="sb"><div class="sbn">中文字</div><div class="sbv">${zh}</div></div><div class="sb"><div class="sbn">英數字</div><div class="sbv">${en}</div></div><div class="sb"><div class="sbn">行數</div><div class="sbv">${txt.split('\n').length}</div></div>`;
+  const w=txt.length>40?'⚠️ 超過40字，iOS通知可能截斷':txt.length>30?'💡 接近截斷上限，建議精簡':'✅ 字元數適中';
+  document.getElementById('ctwarn').innerHTML=`<span style="color:${txt.length>40?'var(--red)':txt.length>30?'#854F0B':'var(--grn)'}">${w}</span>`;
   document.getElementById('ctout').style.display='block';
 }
 
-/* ── 08 SEG GUIDE ── */
-function guiSeg(){return SEGS.map(s=>`
-  <div class="gi"><div class="gh"><span style="font-size:20px">${s.ic}</span><div>
-    <div style="font-weight:700;font-size:13px">${s.n}</div>
-    <div style="font-size:11px;color:var(--g400)">${s.d}</div>
-  </div></div>
-  <div class="gbdy"><div style="font-size:10px;font-weight:700;color:var(--g400);letter-spacing:.05em;text-transform:uppercase;margin-bottom:.25rem">推播策略建議</div>${s.st}</div>
-  </div>`).join('');}
-
-/* ── 09 HISTORY ── */
-function guiHistory(){
-  const opts=`<option value="">全部分類</option>`+SEGS.map(s=>`<option value="${s.id}">${s.n}</option>`).join('');
-  return`<div class="fr" style="margin-bottom:.75rem"><div style="display:flex;gap:8px;align-items:center">
-    <label class="lbl" style="white-space:nowrap;margin:0">篩選分類</label>
-    <select class="sel" id="hfil" onchange="renderHist()" style="max-width:200px">${opts}</select></div></div>
-  <table class="tbl" id="htbl"></table>
-  <script>renderHist();<\/script>`;}
-function renderHist(){
-  const fil=document.getElementById('hfil')?.value||'';
-  const rows=ARCHIVE.filter(a=>!fil||a.seg===fil);
-  document.getElementById('htbl').innerHTML=`<thead><tr><th>分類</th><th>標題</th><th>內文</th><th>參考開啟率</th><th></th></tr></thead><tbody>`+
-  rows.map(a=>`<tr>
-    <td><span class="pill pill-b">${SEGS.find(s=>s.id===a.seg)?.n||a.seg}</span></td>
-    <td style="font-weight:600;max-width:150px">${a.t}</td>
-    <td style="max-width:200px;color:var(--g600)">${a.b}</td>
-    <td><span class="pill pill-g">${a.rate}</span></td>
-    <td><button class="btn bo bsm" onclick="navigator.clipboard.writeText('標題：${a.t.replace(/'/g,"\\'")}\\n內文：${a.b.replace(/'/g,"\\'")}').then(()=>alert('已複製！'))">複製</button></td>
-  </tr>`).join('')+'</tbody>';
-}
-
-/* ── 10 TIMING ── */
-function guiTiming(){
-  const data=[
-    {seg:'未開通交易',best:'週日 20:00–22:00',second:'週六 19:00–21:00',why:'週末晚間有閒置瀏覽時間，完成開通門檻低，適合輕度行動呼籲'},
-    {seg:'有入金',best:'週一 09:00–10:00',second:'週二 08:30–09:30',why:'股市開盤前，資金焦慮感最高，行動轉化率最佳'},
-    {seg:'有加入選股',best:'開盤前 08:30–09:00',second:'收盤後 14:00–15:00',why:'追蹤個股時間點，情緒與交易意願最高'},
-    {seg:'台股APP一周內有登入',best:'週三 晚間 20:00',second:'週四 晚間 19:30',why:'週中用戶已建立習慣，晚間是 APP 瀏覽高峰'},
-    {seg:'美股APP一周內有登入',best:'週二 22:00–23:00',second:'週三 21:30–22:30',why:'美股盤前時段，用戶有強烈下單衝動'},
-    {seg:'有開通交易但無後續動作且登入一周以上',best:'週五 17:00–19:00',second:'週日 上午 10:00',why:'下班後時間充裕，週五好心情，對促銷較敏感'},
-  ];
-  return`<p style="font-size:12px;color:var(--g400);margin-bottom:.75rem">依客戶分類建議的最佳推播星期與時段，基於台股交易行為研究。</p>
-  <table class="tbl"><thead><tr><th>分類</th><th>首選時段</th><th>備選時段</th><th>推薦理由</th></tr></thead><tbody>`+
-  data.map(d=>`<tr><td><span class="pill pill-b">${SEGS.find(s=>s.id===d.seg)?.n||d.seg}</span></td><td><strong>${d.best}</strong></td><td style="color:var(--g600)">${d.second}</td><td style="font-size:11px;color:var(--g600)">${d.why}</td></tr>`).join('')+'</tbody></table>';}
-
-/* ── 11 MKCODE ── */
-const MK_DATA=[
-  {code:'MK0000',ch:'1.官方',sheet:'新戶禮',desc:'官方預設碼'},
-  {code:'MKADAP',ch:'3.Ads',sheet:'MKADAP.MKAD03',desc:'廣告投放 AP'},
-  {code:'MKADCH',ch:'3.Ads',sheet:'MKADCH',desc:'廣告投放 CH'},
-  {code:'MKADGO',ch:'3.Ads',sheet:'MKADGO',desc:'廣告投放 Google'},
-  {code:'MKADET',ch:'3.Ads',sheet:'新戶禮',desc:'廣告投放 ET'},
-  {code:'MKUS01',ch:'1.官方',sheet:'MKUS01',desc:'美股官方'},
-  {code:'MKLIFI',ch:'8.外部合作',sheet:'MKLIFI',desc:'Lifi 合作'},
-  {code:'MKKB01',ch:'6.KOL',sheet:'MKKB01',desc:'KOL B01'},
-  {code:'MKKB02',ch:'6.KOL',sheet:'新戶禮',desc:'KOL B02'},
-  {code:'MKCM07',ch:'7.CMoney',sheet:'MKCM07',desc:'CMoney'},
-  {code:'MKK040',ch:'7.CMoney',sheet:'MKK040',desc:'CMoney 040'},
-  {code:'MKK110',ch:'7.CMoney',sheet:'MKK110',desc:'CMoney 110'},
-  {code:'MKK021',ch:'7.CMoney',sheet:'MKK021.MKK022',desc:'CMoney 021'},
-  {code:'MKK022',ch:'7.CMoney',sheet:'MKK021.MKK022',desc:'CMoney 022'},
-  {code:'MKK020',ch:'7.CMoney',sheet:'MKK020',desc:'CMoney 020'},
-  {code:'MKBKEE',ch:'5.銀行',sheet:'MKBKEE',desc:'KEE 銀行'},
-  {code:'MKBPAY',ch:'5.銀行',sheet:'MKBPAY',desc:'PAY 銀行'},
-  {code:'MKBCHP',ch:'5.銀行',sheet:'MKBCHP',desc:'CHP 銀行'},
-  {code:'MKL031',ch:'4.LINE',sheet:'MKL031',desc:'LINE 031'},
-  {code:'MK0P11',ch:'1.官方',sheet:'新戶禮',desc:'官方活動碼'},
-  {code:'MKALL1',ch:'1.官方',sheet:'新戶禮',desc:'全客群'},
-  {code:'MKAD03',ch:'3.Ads',sheet:'MKADAP.MKAD03',desc:'廣告投放 AD03'},
-  {code:'MKK113',ch:'7.CMoney',sheet:'MKK113',desc:'CMoney 113'},
-];
-function guiMkCode(){return`
-<div style="display:flex;gap:8px;margin-bottom:.75rem;align-items:center">
-  <svg style="width:15px;height:15px;color:var(--g400);flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-  <input class="inp" id="mksearch" placeholder="搜尋行銷碼..." oninput="renderMkTable()">
-</div>
-<table class="tbl" id="mktbl"></table>`;}
-function renderMkTable(){
-  const q=(document.getElementById('mksearch')?.value||'').toUpperCase();
-  const rows=MK_DATA.filter(d=>!q||d.code.includes(q)||d.ch.includes(q)||d.sheet.includes(q)||d.desc.includes(q));
-  document.getElementById('mktbl').innerHTML=`<thead><tr><th>行銷碼</th><th>管道別</th><th>對應工作表</th><th>說明</th></tr></thead><tbody>`+
-  rows.map(d=>`<tr><td><code style="font-family:monospace;font-weight:700;color:var(--red)">${d.code}</code></td><td>${d.ch}</td><td><span class="pill pill-b">${d.sheet}</span></td><td style="color:var(--g600)">${d.desc}</td></tr>`).join('')+'</tbody>';
-}
-
-/* ── 12 SUBJECT ── */
-function guiSubject(){return`
-<p style="font-size:12px;color:var(--g400);margin-bottom:.9rem">輸入關鍵資訊，自動產生 5 組 Email / LINE 主旨行。</p>
-<div class="fr c2">
-  <div><label class="lbl">主題關鍵字</label><input class="inp" id="sk" placeholder="例：新戶禮、美股、推薦好友"></div>
-  <div><label class="lbl">優惠內容</label><input class="inp" id="so" placeholder="例：$300好禮、$600折抵金"></div>
+/* ═══════════════════════════════════════════
+   09 PUSH PERF (累積記憶)
+═══════════════════════════════════════════ */
+let perfChart=null;
+function guiPerf(){return`
+<p style="font-size:12px;color:var(--g400);margin-bottom:.75rem">記錄每次推播成效，資料自動儲存在瀏覽器，每週累積，長期追蹤開啟率趨勢。</p>
+<div id="perf-history-wrap" style="margin-bottom:.85rem"></div>
+<div class="dvd" style="margin:.5rem 0 .75rem"></div>
+<div class="sec-lbl">新增本次推播紀錄</div>
+<div class="fr c3">
+  <div><label class="lbl">名稱/日期</label><input class="inp" id="pn" placeholder="6/10 週Push"></div>
+  <div><label class="lbl">發送人數</label><input class="inp" id="ps" type="number" placeholder="12000"></div>
+  <div><label class="lbl">開啟人數</label><input class="inp" id="po" type="number" placeholder="980"></div>
 </div>
 <div class="fr c2">
-  <div><label class="lbl">情境</label><select class="sel" id="sctx"><option>開戶未交易</option><option>活動即將截止</option><option>新功能上線</option><option>推薦好友</option></select></div>
-  <div><label class="lbl">語氣</label><select class="sel" id="stn"><option>緊迫感</option><option>利益導向</option><option>好奇引發</option></select></div>
+  <div><label class="lbl">點擊人數</label><input class="inp" id="pc" type="number" placeholder="320"></div>
+  <div><label class="lbl">客戶分類</label><select class="sel" id="pcat"><option value="">不指定</option>${SEGS.map(s=>`<option value="${s.id}">${s.n}</option>`).join('')}</select></div>
 </div>
-<button class="btn bp bb" onclick="genSubject()">✨ 產生主旨行</button>
-<div id="sout" style="display:none;margin-top:.9rem"></div>`;}
-function genSubject(){
-  const k=document.getElementById('sk')?.value||'新戶禮';
-  const o=document.getElementById('so')?.value||'$300好禮';
-  const ctx=document.getElementById('sctx')?.value||'開戶未交易';
-  const tn=document.getElementById('stn')?.value||'緊迫感';
-  const tmps={
-    '緊迫感':[`⏳ ${o}快截止了！${k}現在行動`,`限時提醒：你的${o}還沒領`,`不領嗎？${o}只剩最後幾天`,`${k}好禮即將過期，現在領取`,`⚡ 倒數計時！${o}等你拿走`],
-    '利益導向':[`投資第一步，就送${o}`,`新手必看：${k}享${o}超值優惠`,`${o}免費拿！${k}限定方案`,`一筆交易，賺回${o}`,`${k}用戶獨享：${o}福利說明`],
-    '好奇引發':[`你知道${k}可以直接拿${o}嗎？`,`很多人不知道的${k}好禮`,`打開看看：你的${o}還沒領`,`${k}用戶有個秘密福利...`,`我們準備了${o}給你，打開確認`],
-  };
-  const results=tmps[tn]||tmps['緊迫感'];
-  document.getElementById('sout').innerHTML=`<div class="dvd"></div>`+
-  results.map((r,i)=>`<div style="border:1.5px solid var(--bd);border-radius:var(--r);padding:.65rem .9rem;margin-bottom:.5rem;background:#fff;display:flex;align-items:center;justify-content:space-between;gap:10px">
-    <div><div style="font-size:10px;font-weight:700;color:var(--g400);margin-bottom:2px">主旨 ${i+1} · ${r.length}字</div>
-    <div style="font-size:13px;font-weight:600">${r}</div></div>
-    <button class="btn bo bsm" style="flex-shrink:0" onclick="navigator.clipboard.writeText('${r.replace(/'/g,"\\'")}').then(()=>alert('已複製！'))">複製</button>
-  </div>`).join('');
-  document.getElementById('sout').style.display='block';
-}
-
-/* ── 13 FUNNEL ── */
-function guiFunnel(){return`
-<p style="font-size:12px;color:var(--g400);margin-bottom:.9rem">輸入各階段人數，計算轉換率並視覺化漏斗。</p>
-<div class="fr c2">
-  <div><label class="lbl">① 開戶人數</label><input class="inp" id="f1" type="number" value="2677" oninput="drawFunnel()"></div>
-  <div><label class="lbl">② 開通交易人數</label><input class="inp" id="f2" type="number" value="1800" oninput="drawFunnel()"></div>
-</div>
-<div class="fr c2">
-  <div><label class="lbl">③ 入金人數</label><input class="inp" id="f3" type="number" value="420" oninput="drawFunnel()"></div>
-  <div><label class="lbl">④ 完成交易人數</label><input class="inp" id="f4" type="number" value="180" oninput="drawFunnel()"></div>
-</div>
-<div id="fout" style="margin-top:.75rem"></div>`;}
-function initFunnel(){setTimeout(drawFunnel,100);}
-function drawFunnel(){
-  const v=[+document.getElementById('f1')?.value||0,+document.getElementById('f2')?.value||0,+document.getElementById('f3')?.value||0,+document.getElementById('f4')?.value||0];
-  const labels=['開戶','開通交易','入金','完成交易'];
-  const colors=['#C8321A','#D4543C','#E07060','#ECA094'];
-  const max=v[0]||1;
-  const html=v.map((val,i)=>{
-    const pct=i===0?100:+(val/v[0]*100).toFixed(1);
-    const step=i>0?+(val/v[i-1]*100).toFixed(1):100;
-    const w=Math.max(pct,8);
-    return`<div style="margin-bottom:.5rem">
-      <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px">
-        <span style="font-weight:700">${labels[i]}</span>
-        <span style="color:var(--g400)">${val.toLocaleString()} 人 ${i>0?`（上步 ${step}%）`:''}</span>
-      </div>
-      <div style="background:var(--g100);border-radius:3px;height:28px;overflow:hidden">
-        <div style="height:100%;width:${w}%;background:${colors[i]};border-radius:3px;display:flex;align-items:center;padding:0 8px;transition:width .4s">
-          <span style="font-size:11px;font-weight:700;color:#fff">${pct}%</span>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-  const bottleneck=v.reduce((bi,val,i)=>i>0&&(val/v[i-1])<(v[bi]/v[bi-1])?i:bi,1);
-  document.getElementById('fout').innerHTML=html+`<div class="al aw" style="margin-top:.75rem">⚠ 最大流失點：<strong>${labels[bottleneck]}</strong>（轉換率 ${+(v[bottleneck]/v[bottleneck-1]*100).toFixed(1)}%），建議加強這個階段的推播力度。</div>`;
-}
-
-
-/* ══ SHARED FILE STATE for advanced tools ══ */
-let advRows = null; // parsed rows from uploaded file
-
-function parseFile(fileInputId, callback) {
-  const fi = document.getElementById(fileInputId);
-  if (!fi || !fi.files[0]) { callback(null, '請先上傳名單檔案'); return; }
-  const f = fi.files[0];
-  const reader = new FileReader();
-  reader.onload = ev => {
-    try {
-      const wb = XLSX.read(ev.target.result, {type:'array', cellDates:true});
-      const rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {defval:''});
-      callback(rows, null);
-    } catch(e) { callback(null, '讀取失敗：'+e.message); }
-  };
-  reader.readAsArrayBuffer(f);
-}
-
-function daysSince(dateVal) {
-  if (!dateVal) return 999;
-  const d = dateVal instanceof Date ? dateVal : new Date(dateVal);
-  if (isNaN(d)) return 999;
-  return Math.floor((Date.now() - d.getTime()) / 86400000);
-}
-
-function exportRows(rows, filename) {
-  if (!rows || !rows.length) { alert('沒有符合條件的資料'); return; }
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(rows), '篩選結果');
-  XLSX.writeFile(wb, filename + '_' + new Date().toISOString().slice(0,10).replace(/-/g,'') + '.xlsx');
-}
-
-/* ─── 14 ADVANCED FILTER ─── */
-function guiAdvanced() {
-  return `
-<p style="font-size:12px;color:var(--g400);margin-bottom:.85rem">上傳名單後勾選篩選條件，一鍵匯出超精準分眾名單。</p>
-<div class="dz" id="adz" ondragover="dv(event,'adz',1)" ondragleave="dv(event,'adz',0)" ondrop="adr(event)">
-  <input type="file" id="afi" accept=".xlsx" onchange="aload()">
-  <div style="font-size:28px;margin-bottom:.4rem">📂</div>
-  <div style="font-size:13px;font-weight:700;margin-bottom:.2rem">上傳開戶未交易名單</div>
-  <div style="font-size:11px;color:var(--g400)">含分類樣態、行銷碼、入金、台股/美股app最後登入日、開戶日期等欄位</div>
-</div>
-<div id="aftag" style="display:none;margin-top:.6rem"></div>
-<div id="astat" style="display:none;margin-top:.75rem">
-  <div class="sg" id="astatg"></div>
-</div>
-
-<div id="afbox" style="display:none;margin-top:1rem">
+<button class="btn bp bb" onclick="addPerfRecord()" style="margin-bottom:.85rem">➕ 加入紀錄</button>
+<div id="perf-out" style="display:none">
   <div class="dvd"></div>
-  <div style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--g400);margin-bottom:.75rem">進階實動篩選條件</div>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:.9rem">
-    <div style="border:1.5px solid var(--bd);border-radius:var(--r);padding:.85rem;background:#fff">
-      <div style="font-size:12px;font-weight:700;margin-bottom:.6rem">💰 入金狀態</div>
-      <label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer;margin-bottom:.4rem"><input type="radio" name="dep" value="all" checked onchange="previewAdv()"> 全部</label>
-      <label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer;margin-bottom:.4rem"><input type="radio" name="dep" value="Y" onchange="previewAdv()"> ✅ 已入金（錢已到位，主推選股）</label>
-      <label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer"><input type="radio" name="dep" value="N" onchange="previewAdv()"> ❌ 未入金（主推入金教學）</label>
-    </div>
-    <div style="border:1.5px solid var(--bd);border-radius:var(--r);padding:.85rem;background:#fff">
-      <div style="font-size:12px;font-weight:700;margin-bottom:.6rem">📱 APP 活躍度（台股）</div>
-      <label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer;margin-bottom:.4rem"><input type="radio" name="act" value="all" checked onchange="previewAdv()"> 全部</label>
-      <label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer;margin-bottom:.4rem"><input type="radio" name="act" value="hot" onchange="previewAdv()"> 🔥 高活躍（3天內登入）</label>
-      <label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer;margin-bottom:.4rem"><input type="radio" name="act" value="warm" onchange="previewAdv()"> 🌡 溫和（4-7天）</label>
-      <label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer"><input type="radio" name="act" value="cold" onchange="previewAdv()"> 🥶 沉睡（超過7天）</label>
-    </div>
-    <div style="border:1.5px solid var(--bd);border-radius:var(--r);padding:.85rem;background:#fff">
-      <div style="font-size:12px;font-weight:700;margin-bottom:.6rem">🌏 開通市場</div>
-      <label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer;margin-bottom:.4rem"><input type="radio" name="mkt" value="all" checked onchange="previewAdv()"> 全部</label>
-      <label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer;margin-bottom:.4rem"><input type="radio" name="mkt" value="tw_only" onchange="previewAdv()"> 🇹🇼 僅台股（推坑美股）</label>
-      <label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer"><input type="radio" name="mkt" value="both" onchange="previewAdv()"> 🌐 台美雙開（推美股交易）</label>
-    </div>
-    <div style="border:1.5px solid var(--bd);border-radius:var(--r);padding:.85rem;background:#fff">
-      <div style="font-size:12px;font-weight:700;margin-bottom:.6rem">⏰ 開戶天數篩選</div>
-      <label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer;margin-bottom:.4rem"><input type="radio" name="days" value="all" checked onchange="previewAdv()"> 全部</label>
-      <label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer;margin-bottom:.4rem"><input type="radio" name="days" value="urgent" onchange="previewAdv()"> 🚨 開戶 20-29 天（最急迫！）</label>
-      <label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer;margin-bottom:.4rem"><input type="radio" name="days" value="mid" onchange="previewAdv()"> ⚡ 開戶 7-19 天</label>
-      <label style="display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer"><input type="radio" name="days" value="new" onchange="previewAdv()"> 🌱 開戶 1-6 天（剛開戶）</label>
-    </div>
-  </div>
-
-  <div id="adv-preview" style="margin-bottom:.85rem"></div>
-  <div id="adv-hint" style="margin-bottom:.85rem"></div>
-  <button class="btn bp bb" onclick="exportAdv()">⬇ 匯出篩選名單</button>
-</div>`;
+  <div class="sg" id="perf-stats"></div>
+  <div class="chart-wrap" style="height:200px"><canvas id="perfChart"></canvas></div>
+  <table class="tbl" id="perf-tbl" style="margin-top:.65rem"></table>
+</div>`;}
+function initPerf(){renderPerfHistory();}
+function loadPerfData(){return ls('perf_data',[]);}
+function savePerfData(d){lss('perf_data',d);}
+function renderPerfHistory(){
+  const data=loadPerfData();
+  const el=document.getElementById('perf-history-wrap');
+  if(!el)return;
+  if(!data.length){el.innerHTML='<div class="al ai">尚無歷史紀錄，新增第一筆後會在這裡累積顯示。</div>';return;}
+  el.innerHTML=`<div class="sec-lbl">歷史紀錄（${data.length}筆，儲存在此瀏覽器）</div>`+
+  `<div style="border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;background:#fff">`+
+  data.slice().reverse().map((d,i)=>{
+    const or=(d.open/d.sent*100).toFixed(1);const ctr=(d.click/d.sent*100).toFixed(1);
+    const cls=+or>=8?'pg':+or>=5?'py':'pr2';
+    return`<div class="week-row${i===0?' latest':''}"><div><div style="font-size:12px;font-weight:600">${d.label}</div><div style="font-size:10px;color:var(--g400)">${d.cat||'所有分類'} · ${d.sent.toLocaleString()}人</div></div><div style="display:flex;align-items:center;gap:8px"><span class="pill ${cls}">開啟 ${or}%</span><span style="font-size:10px;color:var(--g400)">CTR ${ctr}%</span><button class="btn bo bsm" onclick="delPerf(${data.length-1-i})" style="padding:2px 6px;font-size:10px">✕</button></div></div>`;
+  }).join('')+'</div>';
+  renderPerfChart(data);
+}
+function delPerf(i){const d=loadPerfData();d.splice(i,1);savePerfData(d);renderPerfHistory();}
+function addPerfRecord(){
+  const label=document.getElementById('pn')?.value||'';const sent=+document.getElementById('ps')?.value||0;const open=+document.getElementById('po')?.value||0;const click=+document.getElementById('pc')?.value||0;const cat=document.getElementById('pcat')?.value||'';
+  if(!sent){alert('請填入發送人數');return;}
+  const data=loadPerfData();
+  data.push({label:label||new Date().toLocaleDateString('zh-TW'),sent,open,click,cat,ts:Date.now()});
+  savePerfData(data);
+  ['pn','ps','po','pc'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  renderPerfHistory();
+  document.getElementById('perf-out').style.display='block';
+}
+function renderPerfChart(data){
+  if(!data||!data.length)return;
+  const labels=data.map(d=>d.label);
+  const orData=data.map(d=>+(d.open/(d.sent||1)*100).toFixed(1));
+  const ctrData=data.map(d=>+(d.click/(d.sent||1)*100).toFixed(1));
+  if(perfChart)perfChart.destroy();
+  const canvas=document.getElementById('perfChart');if(!canvas)return;
+  perfChart=new Chart(canvas,{type:'line',data:{labels,datasets:[{label:'開啟率 %',data:orData,borderColor:'#C8321A',backgroundColor:'rgba(200,50,26,.1)',tension:.3,fill:true,pointRadius:4},{label:'CTR %',data:ctrData,borderColor:'#185FA5',backgroundColor:'rgba(24,95,165,.08)',tension:.3,fill:true,pointRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:10}}}},scales:{y:{beginAtZero:true,ticks:{font:{size:10}},grid:{color:'rgba(0,0,0,.05)'}},x:{ticks:{font:{size:10}},grid:{display:false}}}}});
+  const avg=data.reduce((a,d)=>a+d.open/d.sent,0)/data.length;
+  document.getElementById('perf-stats').innerHTML=`<div class="sb hi"><div class="sbn">總筆數</div><div class="sbv">${data.length}</div></div><div class="sb"><div class="sbn">平均開啟率</div><div class="sbv">${(avg*100).toFixed(1)}%</div></div><div class="sb g"><div class="sbn">最佳</div><div class="sbv" style="font-size:13px">${data.reduce((a,b)=>b.open/b.sent>a.open/a.sent?b:a).label}</div></div><div class="sb r"><div class="sbn">最低</div><div class="sbv" style="font-size:13px">${data.reduce((a,b)=>b.open/b.sent<a.open/a.sent?b:a).label}</div></div>`;
+  document.getElementById('perf-out').style.display='block';
 }
 
-function adr(e) { e.preventDefault(); dv(e,'adz',0); const fi=document.getElementById('afi'); if(e.dataTransfer.files[0]){const dt=new DataTransfer();dt.items.add(e.dataTransfer.files[0]);fi.files=dt.files;} aload(); }
-
-function aload() {
-  parseFile('afi', (rows, err) => {
-    if (err) { alert(err); return; }
-    advRows = rows;
-    const f = document.getElementById('afi').files[0];
-    document.getElementById('aftag').innerHTML = `<div class="ftag">📄 ${f.name} <span style="font-size:10px;color:var(--g600);margin-left:4px">（${rows.length.toLocaleString()} 筆）</span></div>`;
-    document.getElementById('aftag').style.display = 'block';
-    const dep_y = rows.filter(r=>(r['入金']||'').toString().trim()==='Y').length;
-    const dep_n = rows.length - dep_y;
-    const hot = rows.filter(r=>daysSince(r['台股app最後登入日'])<=3&&r['台股app最後登入日']).length;
-    const both = rows.filter(r=>(r['美股開戶']||'').toString().trim()==='Y').length;
-    const urgent = rows.filter(r=>{const d=daysSince(r['開戶日期']);return d>=20&&d<=29;}).length;
-    document.getElementById('astatg').innerHTML = `
-      <div class="sb hi"><div class="sbn">總人數</div><div class="sbv">${rows.length.toLocaleString()}</div></div>
-      <div class="sb r"><div class="sbn">已入金</div><div class="sbv">${dep_y.toLocaleString()}</div></div>
-      <div class="sb"><div class="sbn">高活躍</div><div class="sbv">${hot.toLocaleString()}</div></div>
-      <div class="sb"><div class="sbn">台美雙開</div><div class="sbv">${both.toLocaleString()}</div></div>`;
-    document.getElementById('astat').style.display = 'block';
-    document.getElementById('afbox').style.display = 'block';
-    previewAdv();
-  });
-}
-
-function getAdvFiltered() {
-  if (!advRows) return [];
-  const dep = document.querySelector('input[name=dep]:checked')?.value || 'all';
-  const act = document.querySelector('input[name=act]:checked')?.value || 'all';
-  const mkt = document.querySelector('input[name=mkt]:checked')?.value || 'all';
-  const days = document.querySelector('input[name=days]:checked')?.value || 'all';
-  return advRows.filter(r => {
-    const depV = (r['入金']||'').toString().trim();
-    const loginD = daysSince(r['台股app最後登入日']);
-    const hasUs = (r['美股開戶']||'').toString().trim()==='Y';
-    const openD = daysSince(r['開戶日期']);
-    if (dep==='Y' && depV!=='Y') return false;
-    if (dep==='N' && depV!=='N') return false;
-    if (act==='hot' && !(loginD<=3 && r['台股app最後登入日'])) return false;
-    if (act==='warm' && !(loginD>=4 && loginD<=7)) return false;
-    if (act==='cold' && loginD<=7) return false;
-    if (mkt==='tw_only' && hasUs) return false;
-    if (mkt==='both' && !hasUs) return false;
-    if (days==='urgent' && !(openD>=20 && openD<=29)) return false;
-    if (days==='mid' && !(openD>=7 && openD<=19)) return false;
-    if (days==='new' && !(openD>=1 && openD<=6)) return false;
-    return true;
-  });
-}
-
-const HINT_MAP = {
-  'dep=Y,act=hot': '💡 推播建議：已入金 × 高活躍 → 直接推精選股票清單或熱門 ETF 殖利率排行，他們只差「買什麼」的答案',
-  'dep=Y,act=cold': '💡 推播建議：已入金 × 沉睡 → 用「你的資金還在帳上睡覺 💤」喚醒，搭配新戶禮到期倒數',
-  'dep=N,act=hot': '💡 推播建議：未入金 × 高活躍 → 正在逛 APP 但沒入金，推「3分鐘圖文入金教學」降低門檻',
-  'dep=N,act=cold': '💡 推播建議：未入金 × 沉睡 → 最難觸達，標題要聳動，例如「⚠️ 你的 $300 好禮快白白消失了」',
-  'mkt=tw_only': '💡 推播建議：僅台股 → 適合推「一鍵加開美股，捕捉全球趨勢」，低摩擦跨市場引導',
-  'mkt=both': '💡 推播建議：台美雙開 → 可帶入美股話題，「想佈局 VOO / SOFI？美股首筆再享 LINE POINT 300」',
-  'days=urgent': '🚨 最急迫名單！開戶 20-29 天，新戶禮快到期，這組發倒數提醒轉換率最高，優先處理',
-};
-
-function previewAdv() {
-  const result = getAdvFiltered();
-  const dep = document.querySelector('input[name=dep]:checked')?.value || 'all';
-  const act = document.querySelector('input[name=act]:checked')?.value || 'all';
-  const mkt = document.querySelector('input[name=mkt]:checked')?.value || 'all';
-  const days = document.querySelector('input[name=days]:checked')?.value || 'all';
-  const total = advRows ? advRows.length : 0;
-  const pct = total ? (result.length/total*100).toFixed(1) : 0;
-  document.getElementById('adv-preview').innerHTML = result.length > 0
-    ? `<div class="al as">✅ 符合條件：<strong>${result.length.toLocaleString()} 人</strong>（佔總名單 ${pct}%）</div>`
-    : `<div class="al ae">⚠ 目前條件下沒有符合的客戶，請調整篩選條件</div>`;
-
-  // show hint
-  let hint = '';
-  const key1 = `dep=${dep},act=${act}`;
-  const key2 = `mkt=${mkt}`;
-  const key3 = `days=${days}`;
-  if (days==='urgent') hint = HINT_MAP['days=urgent'];
-  else if (HINT_MAP[key1]) hint = HINT_MAP[key1];
-  else if (mkt!=='all') hint = HINT_MAP[key2]||'';
-  document.getElementById('adv-hint').innerHTML = hint
-    ? `<div class="al aw">${hint}</div>` : '';
-}
-
-function exportAdv() {
-  const result = getAdvFiltered();
-  const dep = document.querySelector('input[name=dep]:checked')?.value || 'all';
-  const act = document.querySelector('input[name=act]:checked')?.value || 'all';
-  exportRows(result, `精準名單_${dep}_${act}`);
-}
-
-/* ─── 15 DEPOSIT SPLIT ─── */
-function guiDeposit() {
-  return `
-<p style="font-size:12px;color:var(--g400);margin-bottom:.85rem">上傳名單後自動拆分「已入金」與「未入金」，並給出對應推播建議。</p>
-<div class="dz" id="ddz" ondragover="dv(event,'ddz',1)" ondragleave="dv(event,'ddz',0)" ondrop="ddr(event)">
-  <input type="file" id="dfi" accept=".xlsx" onchange="dload()">
-  <div style="font-size:28px;margin-bottom:.4rem">📂</div>
-  <div style="font-size:13px;font-weight:700">點擊或拖曳上傳名單</div>
+/* ═══════════════════════════════════════════
+   10 TREND (週週累積)
+═══════════════════════════════════════════ */
+let trendChart=null;
+function guiTrend(){return`
+<p style="font-size:12px;color:var(--g400);margin-bottom:.75rem">每週上傳名單後自動記錄各分類人數，這裡顯示累積趨勢。資料存在瀏覽器，每週自動新增。</p>
+<div id="trend-status" style="margin-bottom:.75rem"></div>
+<div id="trend-out" style="display:none">
+  <div class="sec-lbl" style="margin-bottom:.5rem">選擇追蹤的分類</div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:.85rem" id="trend-seg-btns"></div>
+  <div class="chart-wrap" style="height:220px"><canvas id="trendChart"></canvas></div>
+  <div style="overflow-x:auto"><table class="tbl" id="trend-tbl" style="margin-top:.65rem"></table></div>
 </div>
-<div id="dftag" style="display:none;margin-top:.6rem"></div>
-<div id="dout" style="display:none;margin-top:1rem"></div>`;
+<div class="dvd"></div>
+<div style="display:flex;gap:7px;flex-wrap:wrap">
+  <button class="btn bo bsm" onclick="clearTrend()">🗑 清除所有週資料</button>
+</div>`;}
+let trendActiveSeg=null;
+function initTrend(){
+  const weeks=ls('trend_weeks',[]);
+  const el=document.getElementById('trend-status');
+  if(!weeks.length){
+    el.innerHTML='<div class="al ai">尚無歷史資料。上傳名單後會自動記錄本週數字，累積幾週後這裡就會出現趨勢圖。</div>';
+    if(gRows){el.innerHTML+=`<div class="al as2" style="margin-top:-.25rem">✅ 本週（${getWeekLabel()}）的資料已記錄，再上傳幾週後就能看到趨勢！</div>`;}
+    return;
+  }
+  el.innerHTML=`<div class="al as2">✅ 已累積 ${weeks.length} 週資料（${weeks[0].label} ~ ${weeks[weeks.length-1].label}）</div>`;
+  document.getElementById('trend-out').style.display='block';
+  // Build seg buttons
+  const segsWithData=SEGS.filter(s=>weeks.some(w=>w.segs&&w.segs[s.id]>0));
+  const btnWrap=document.getElementById('trend-seg-btns');
+  btnWrap.innerHTML=segsWithData.map((s,i)=>`<button class="fb${i===0?' on':''}" onclick="switchTrendSeg(this,'${s.id}')">${s.ic} ${s.n}</button>`).join('');
+  trendActiveSeg=segsWithData[0]?.id||null;
+  renderTrendChart(weeks);
 }
-function ddr(e){e.preventDefault();dv(e,'ddz',0);const fi=document.getElementById('dfi');if(e.dataTransfer.files[0]){const dt=new DataTransfer();dt.items.add(e.dataTransfer.files[0]);fi.files=dt.files;}dload();}
-function dload() {
-  parseFile('dfi', (rows, err) => {
-    if (err) { alert(err); return; }
-    const f = document.getElementById('dfi').files[0];
-    document.getElementById('dftag').innerHTML = `<div class="ftag">📄 ${f.name}</div>`;
-    document.getElementById('dftag').style.display = 'block';
-    const yes = rows.filter(r=>(r['入金']||'').toString().trim()==='Y');
-    const no  = rows.filter(r=>(r['入金']||'').toString().trim()!=='Y');
-    document.getElementById('dout').innerHTML = `
-    <div class="dvd"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1rem">
-      <div style="border:2px solid #0F6E56;border-radius:var(--r);overflow:hidden">
-        <div style="background:#E1F5EE;padding:.65rem 1rem;display:flex;align-items:center;justify-content:space-between">
-          <div><div style="font-weight:800;font-size:15px;color:#0F6E56">✅ 已入金</div><div style="font-size:11px;color:var(--g600)">資金已在帳，等待進場訊號</div></div>
-          <div style="font-size:26px;font-weight:900;color:#0F6E56">${yes.length.toLocaleString()}</div>
-        </div>
-        <div style="padding:.75rem 1rem;background:#fff">
-          <div style="font-size:10px;font-weight:700;color:var(--g400);letter-spacing:.05em;text-transform:uppercase;margin-bottom:.4rem">推播方向</div>
-          <div style="font-size:12px;line-height:1.7;color:var(--g800)">這群人已做好心理準備，缺的是「買什麼」的答案。</div>
-          <div style="margin-top:.6rem;display:flex;flex-direction:column;gap:.35rem">
-            <div style="font-size:12px;padding:.4rem .65rem;background:var(--g50);border-radius:3px;border-left:3px solid #0F6E56">📊 推精選低本益比、低股價淨值比的價值股名單</div>
-            <div style="font-size:12px;padding:.4rem .65rem;background:var(--g50);border-radius:3px;border-left:3px solid #0F6E56">🏆 推熱門 ETF 殖利率排行（0056、00878）</div>
-            <div style="font-size:12px;padding:.4rem .65rem;background:var(--g50);border-radius:3px;border-left:3px solid #0F6E56">💬 文案重點：「錢都到了，這幾檔你可以看看」</div>
-          </div>
-          <button class="btn bd bb bsm" style="margin-top:.75rem" onclick="exportRows(${JSON.stringify([])}, '已入金名單')">⬇ 下載已入金名單</button>
-        </div>
-      </div>
-      <div style="border:2px solid var(--red);border-radius:var(--r);overflow:hidden">
-        <div style="background:var(--red-light);padding:.65rem 1rem;display:flex;align-items:center;justify-content:space-between">
-          <div><div style="font-weight:800;font-size:15px;color:var(--red)">❌ 未入金</div><div style="font-size:11px;color:var(--g600)">卡在第一步，可能覺得麻煩</div></div>
-          <div style="font-size:26px;font-weight:900;color:var(--red)">${no.length.toLocaleString()}</div>
-        </div>
-        <div style="padding:.75rem 1rem;background:#fff">
-          <div style="font-size:10px;font-weight:700;color:var(--g400);letter-spacing:.05em;text-transform:uppercase;margin-bottom:.4rem">推播方向</div>
-          <div style="font-size:12px;line-height:1.7;color:var(--g800)">主要障礙是「不知道怎麼匯款」或「覺得麻煩」，降低門檻是關鍵。</div>
-          <div style="margin-top:.6rem;display:flex;flex-direction:column;gap:.35rem">
-            <div style="font-size:12px;padding:.4rem .65rem;background:var(--g50);border-radius:3px;border-left:3px solid var(--red)">📚 推「3分鐘圖文入金教學」連結</div>
-            <div style="font-size:12px;padding:.4rem .65rem;background:var(--g50);border-radius:3px;border-left:3px solid var(--red)">🎁 提醒「入金後才能啟動的新戶好禮」</div>
-            <div style="font-size:12px;padding:.4rem .65rem;background:var(--g50);border-radius:3px;border-left:3px solid var(--red)">💬 文案重點：「只要入金就能馬上領 $300 好禮」</div>
-          </div>
-          <button class="btn bp bb bsm" style="margin-top:.75rem" onclick="exportRows(${JSON.stringify([])}, '未入金名單')">⬇ 下載未入金名單</button>
-        </div>
-      </div>
-    </div>
-    <div class="al aw">💡 建議：已入金名單配合「選股邏輯型」Push，未入金名單配合「入金教學型」Push，兩包分開發，避免訊息錯位。</div>`;
-    // Fix exports with actual data
-    document.querySelectorAll('#dout button').forEach((btn, i) => {
-      if (i===0) btn.onclick = () => exportRows(yes, '已入金名單');
-      if (i===1) btn.onclick = () => exportRows(no, '未入金名單');
-    });
-    document.getElementById('dout').style.display = 'block';
-  });
+function switchTrendSeg(btn,segId){document.querySelectorAll('#trend-seg-btns .fb').forEach(b=>b.classList.remove('on'));btn.classList.add('on');trendActiveSeg=segId;renderTrendChart(ls('trend_weeks',[]));}
+function renderTrendChart(weeks){
+  if(!weeks.length)return;
+  const labels=weeks.map(w=>w.label);
+  const totalData=weeks.map(w=>w.total||0);
+  const segData=trendActiveSeg?weeks.map(w=>w.segs?w.segs[trendActiveSeg]||0:0):[];
+  const seg=SEGS.find(s=>s.id===trendActiveSeg);
+  if(trendChart)trendChart.destroy();
+  const canvas=document.getElementById('trendChart');if(!canvas)return;
+  trendChart=new Chart(canvas,{type:'line',data:{labels,datasets:[{label:'總名單人數',data:totalData,borderColor:'#9C9890',backgroundColor:'rgba(156,152,144,.08)',tension:.3,fill:true,pointRadius:3,borderDash:[4,3]},{label:(seg?seg.n+' ':'')+' 人數',data:segData,borderColor:'#C8321A',backgroundColor:'rgba(200,50,26,.1)',tension:.3,fill:true,pointRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:10}}}},scales:{y:{beginAtZero:true,ticks:{font:{size:10}},grid:{color:'rgba(0,0,0,.05)'}},x:{ticks:{font:{size:10}},grid:{display:false}}}}});
+  // Table
+  document.getElementById('trend-tbl').innerHTML='<thead><tr><th>週次</th><th>總名單</th><th>'+(seg?seg.n:'分類')+'</th><th>佔比</th></tr></thead><tbody>'+
+  weeks.map(w=>{const cnt=w.segs?w.segs[trendActiveSeg]||0:0;const pct=w.total?+(cnt/w.total*100).toFixed(1):0;return`<tr><td><strong>${w.label}</strong></td><td>${(w.total||0).toLocaleString()}</td><td>${cnt.toLocaleString()}</td><td><span class="pill pb3">${pct}%</span></td></tr>`;}).join('')+'</tbody>';
 }
+function clearTrend(){if(confirm('確定清除所有週趨勢資料？')){lss('trend_weeks',[]);document.getElementById('mbody').innerHTML=guiTrend();initTrend();}}
 
-/* ─── 16 ACTIVITY METER ─── */
-function guiActivity() {
-  return `
-<p style="font-size:12px;color:var(--g400);margin-bottom:.85rem">依「台股app最後登入日」計算沉睡天數，分成三個溫度群組。</p>
-<div class="dz" id="adz2" ondragover="dv(event,'adz2',1)" ondragleave="dv(event,'adz2',0)" ondrop="adr2(event)">
-  <input type="file" id="afi2" accept=".xlsx" onchange="aload2()">
-  <div style="font-size:28px;margin-bottom:.4rem">📂</div>
-  <div style="font-size:13px;font-weight:700">點擊或拖曳上傳名單</div>
+/* ═══════════════════════════════════════════
+   11 REWARDS
+═══════════════════════════════════════════ */
+const RWTYPES=['現金','超商卡','LINE','實體小禮','手續費優惠','其他'];
+function guiRewards(){return`
+<div style="background:var(--grnl);border:1px solid #9FE1CB;border-radius:var(--r);padding:.55rem .85rem;font-size:12px;color:var(--grn);margin-bottom:.85rem">✅ 預載 ${DEFAULT_REWARDS.length} 組常見行銷碼，直接修改後儲存即可。</div>
+<div style="display:flex;gap:7px;margin-bottom:.75rem;flex-wrap:wrap">
+  <button class="btn bp bsm" onclick="addRwRow()">+ 新增</button>
+  <button class="btn bo bsm" onclick="resetRwDefaults()">↺ 恢復預設</button>
+  <button class="btn bgrn bsm" onclick="saveRwTable()">💾 儲存</button>
+  <span id="rw-ok" style="display:none;font-size:12px;color:var(--grn);align-self:center">✅ 已儲存！</span>
 </div>
-<div id="aftag2" style="display:none;margin-top:.6rem"></div>
-<div id="aout2" style="display:none;margin-top:1rem"></div>`;
-}
-function adr2(e){e.preventDefault();dv(e,'adz2',0);const fi=document.getElementById('afi2');if(e.dataTransfer.files[0]){const dt=new DataTransfer();dt.items.add(e.dataTransfer.files[0]);fi.files=dt.files;}aload2();}
-function aload2() {
-  parseFile('afi2', (rows, err) => {
-    if (err) { alert(err); return; }
-    const f = document.getElementById('afi2').files[0];
-    document.getElementById('aftag2').innerHTML = `<div class="ftag">📄 ${f.name}</div>`;
-    document.getElementById('aftag2').style.display = 'block';
-    const hot=[], warm=[], cold=[], none=[];
-    rows.forEach(r => {
-      const d = r['台股app最後登入日'];
-      if (!d) { none.push(r); return; }
-      const n = daysSince(d);
-      if (n<=3) hot.push(r);
-      else if (n<=7) warm.push(r);
-      else cold.push(r);
-    });
-    const total = rows.length;
-    const bar = (n) => `<div style="background:var(--g100);border-radius:3px;height:8px;margin-top:5px;overflow:hidden"><div style="width:${Math.max(n/total*100,2).toFixed(1)}%;height:100%;background:currentColor;border-radius:3px"></div></div>`;
-    document.getElementById('aout2').innerHTML = `
-    <div class="dvd"></div>
-    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:1rem">
-      <div style="border:1.5px solid #0F6E56;border-radius:var(--r);padding:.85rem 1rem;background:#fff">
-        <div style="display:flex;align-items:center;justify-content:space-between">
-          <div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">🔥</span><div><div style="font-weight:700;font-size:13px">高活躍 — 3天內登入</div><div style="font-size:11px;color:var(--g400)">正在逛APP，缺臨門一腳</div></div></div>
-          <div style="text-align:right"><div style="font-size:22px;font-weight:900;color:#0F6E56">${hot.length.toLocaleString()}</div><div style="font-size:10px;color:var(--g400)">${(hot.length/total*100).toFixed(1)}%</div></div>
-        </div>
-        <div style="color:#0F6E56">${bar(hot.length)}</div>
-        <div style="font-size:11px;margin-top:.6rem;padding:.4rem .65rem;background:#E1F5EE;border-radius:3px">💬 推播：強打限時優惠或即時盤前報「你的 $300 好禮快過期了！查看今日熱門股 👉」</div>
-        <button class="btn bo bsm" style="margin-top:.5rem" onclick="exportRows(${JSON.stringify([])}, '高活躍名單')">⬇ 下載</button>
-      </div>
-      <div style="border:1.5px solid #854F0B;border-radius:var(--r);padding:.85rem 1rem;background:#fff">
-        <div style="display:flex;align-items:center;justify-content:space-between">
-          <div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">🌡</span><div><div style="font-weight:700;font-size:13px">溫和活躍 — 4-7天</div><div style="font-size:11px;color:var(--g400)">有點冷淡，需要提醒</div></div></div>
-          <div style="text-align:right"><div style="font-size:22px;font-weight:900;color:#854F0B">${warm.length.toLocaleString()}</div><div style="font-size:10px;color:var(--g400)">${(warm.length/total*100).toFixed(1)}%</div></div>
-        </div>
-        <div style="color:#854F0B">${bar(warm.length)}</div>
-        <div style="font-size:11px;margin-top:.6rem;padding:.4rem .65rem;background:#FAEEDA;border-radius:3px">💬 推播：溫和喚醒，可推選股清單或本週熱門標的</div>
-        <button class="btn bo bsm" style="margin-top:.5rem" onclick="exportRows(${JSON.stringify([])}, '溫和活躍名單')">⬇ 下載</button>
-      </div>
-      <div style="border:1.5px solid var(--red);border-radius:var(--r);padding:.85rem 1rem;background:#fff">
-        <div style="display:flex;align-items:center;justify-content:space-between">
-          <div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">🥶</span><div><div style="font-weight:700;font-size:13px">沉睡 — 超過7天未登入</div><div style="font-size:11px;color:var(--g400)">快忘記自己有開戶了</div></div></div>
-          <div style="text-align:right"><div style="font-size:22px;font-weight:900;color:var(--red)">${cold.length.toLocaleString()}</div><div style="font-size:10px;color:var(--g400)">${(cold.length/total*100).toFixed(1)}%</div></div>
-        </div>
-        <div style="color:var(--red)">${bar(cold.length)}</div>
-        <div style="font-size:11px;margin-top:.6rem;padding:.4rem .65rem;background:var(--red-light);border-radius:3px">💬 推播：標題要聳動！「⚠️限時！別讓 $100 折抵金白白過期」，喚醒記憶</div>
-        <button class="btn bo bsm" style="margin-top:.5rem" onclick="exportRows(${JSON.stringify([])}, '沉睡名單')">⬇ 下載</button>
-      </div>
-    </div>`;
-    // Fix exports
-    const btns = document.querySelectorAll('#aout2 button');
-    [hot, warm, cold].forEach((arr, i) => { if(btns[i]) btns[i].onclick = () => exportRows(arr, ['高活躍名單','溫和活躍名單','沉睡名單'][i]); });
-    document.getElementById('aout2').style.display = 'block';
-  });
-}
-
-/* ─── 17 MARKET SPLIT ─── */
-function guiMarket() {
-  return `
-<p style="font-size:12px;color:var(--g400);margin-bottom:.85rem">比對客戶開通的市場偏好，產生對應推播策略。</p>
-<div class="dz" id="mdz" ondragover="dv(event,'mdz',1)" ondragleave="dv(event,'mdz',0)" ondrop="mdr(event)">
-  <input type="file" id="mfi" accept=".xlsx" onchange="mload()">
-  <div style="font-size:28px;margin-bottom:.4rem">📂</div>
-  <div style="font-size:13px;font-weight:700">點擊或拖曳上傳名單</div>
-</div>
-<div id="mftag" style="display:none;margin-top:.6rem"></div>
-<div id="mout" style="display:none;margin-top:1rem"></div>`;
-}
-function mdr(e){e.preventDefault();dv(e,'mdz',0);const fi=document.getElementById('mfi');if(e.dataTransfer.files[0]){const dt=new DataTransfer();dt.items.add(e.dataTransfer.files[0]);fi.files=dt.files;}mload();}
-function mload() {
-  parseFile('mfi', (rows, err) => {
-    if (err) { alert(err); return; }
-    const f = document.getElementById('mfi').files[0];
-    document.getElementById('mftag').innerHTML = `<div class="ftag">📄 ${f.name}</div>`;
-    document.getElementById('mftag').style.display = 'block';
-    const tw = rows.filter(r=>(r['美股開戶']||'').toString().trim()!=='Y');
-    const both = rows.filter(r=>(r['美股開戶']||'').toString().trim()==='Y');
-    document.getElementById('mout').innerHTML = `
-    <div class="dvd"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:.9rem">
-      <div style="border:1.5px solid #185FA5;border-radius:var(--r);overflow:hidden">
-        <div style="background:#E6F1FB;padding:.65rem 1rem;display:flex;align-items:center;justify-content:space-between">
-          <div><div style="font-weight:800;font-size:14px;color:#185FA5">🇹🇼 僅台股</div><div style="font-size:10px;color:var(--g600)">只開台股帳戶</div></div>
-          <div style="font-size:24px;font-weight:900;color:#185FA5">${tw.length.toLocaleString()}</div>
-        </div>
-        <div style="padding:.75rem 1rem;background:#fff;font-size:12px">
-          <div style="font-weight:700;margin-bottom:.4rem">推播策略</div>
-          <div style="display:flex;flex-direction:column;gap:.3rem">
-            <div style="padding:.38rem .65rem;background:var(--g50);border-radius:3px;border-left:3px solid #185FA5">🌐 「一鍵加開美股，捕捉全球趨勢」</div>
-            <div style="padding:.38rem .65rem;background:var(--g50);border-radius:3px;border-left:3px solid #185FA5">📊 強調台股功能與低手續費</div>
-            <div style="padding:.38rem .65rem;background:var(--g50);border-radius:3px;border-left:3px solid #185FA5">💰 美股開戶再享 $300 新戶好禮</div>
-          </div>
-          <button class="btn bd bb bsm" style="margin-top:.65rem" onclick="exportRows(window._tw_rows,'僅台股名單')">⬇ 下載</button>
-        </div>
-      </div>
-      <div style="border:1.5px solid var(--red);border-radius:var(--r);overflow:hidden">
-        <div style="background:var(--red-light);padding:.65rem 1rem;display:flex;align-items:center;justify-content:space-between">
-          <div><div style="font-weight:800;font-size:14px;color:var(--red)">🌐 台美雙開</div><div style="font-size:10px;color:var(--g600)">同時開通台股與美股</div></div>
-          <div style="font-size:24px;font-weight:900;color:var(--red)">${both.length.toLocaleString()}</div>
-        </div>
-        <div style="padding:.75rem 1rem;background:#fff;font-size:12px">
-          <div style="font-weight:700;margin-bottom:.4rem">推播策略</div>
-          <div style="display:flex;flex-direction:column;gap:.3rem">
-            <div style="padding:.38rem .65rem;background:var(--g50);border-radius:3px;border-left:3px solid var(--red)">📈 「PYPL、SOFI 還是 VOO？美股首筆再享 LINE POINT 300」</div>
-            <div style="padding:.38rem .65rem;background:var(--g50);border-radius:3px;border-left:3px solid var(--red)">🚀 強調 0.08% 超低費率無低消</div>
-            <div style="padding:.38rem .65rem;background:var(--g50);border-radius:3px;border-left:3px solid var(--red)">💡 碎股也能買，$1 起手不心疼</div>
-          </div>
-          <button class="btn bp bb bsm" style="margin-top:.65rem" onclick="exportRows(window._both_rows,'台美雙開名單')">⬇ 下載</button>
-        </div>
-      </div>
-    </div>`;
-    window._tw_rows = tw; window._both_rows = both;
-    document.getElementById('mout').style.display = 'block';
-  });
-}
-
-/* ─── 18 COUNTDOWN ─── */
-function guiCountdown() {
-  return `
-<p style="font-size:12px;color:var(--g400);margin-bottom:.85rem">自動抓出「開戶滿 N 天但未交易」的急迫名單，這群人轉換率最高。</p>
-<div class="dz" id="cdz" ondragover="dv(event,'cdz',1)" ondragleave="dv(event,'cdz',0)" ondrop="cdr2(event)">
-  <input type="file" id="cfi" accept=".xlsx" onchange="cload()">
-  <div style="font-size:28px;margin-bottom:.4rem">📂</div>
-  <div style="font-size:13px;font-weight:700">點擊或拖曳上傳名單</div>
-</div>
-<div id="cftag" style="display:none;margin-top:.6rem"></div>
-<div class="fr c2" style="margin-top:.85rem">
-  <div><label class="lbl">開戶天數下限</label><input class="inp" id="dmin" type="number" value="20" min="1"></div>
-  <div><label class="lbl">開戶天數上限</label><input class="inp" id="dmax" type="number" value="29" min="1"></div>
-</div>
-<button class="btn bp bb" onclick="crun()" id="cbtn" disabled>🚨 找出急迫名單</button>
-<div id="cout" style="display:none;margin-top:1rem"></div>`;
-}
-let cFileRows = null;
-function cdr2(e){e.preventDefault();dv(e,'cdz',0);const fi=document.getElementById('cfi');if(e.dataTransfer.files[0]){const dt=new DataTransfer();dt.items.add(e.dataTransfer.files[0]);fi.files=dt.files;}cload();}
-function cload() {
-  parseFile('cfi', (rows, err) => {
-    if (err) { alert(err); return; }
-    cFileRows = rows;
-    const f = document.getElementById('cfi').files[0];
-    document.getElementById('cftag').innerHTML = `<div class="ftag">📄 ${f.name} <span style="font-size:10px;color:var(--g600);margin-left:4px">（${rows.length.toLocaleString()} 筆）</span></div>`;
-    document.getElementById('cftag').style.display = 'block';
-    document.getElementById('cbtn').disabled = false;
-  });
-}
-function crun() {
-  if (!cFileRows) return;
-  const mn = +document.getElementById('dmin').value || 20;
-  const mx = +document.getElementById('dmax').value || 29;
-  const result = cFileRows.filter(r => {
-    const d = daysSince(r['開戶日期']);
-    return d >= mn && d <= mx;
-  });
-  const urgentDist = {};
-  result.forEach(r => {
-    const d = daysSince(r['開戶日期']);
-    urgentDist[d] = (urgentDist[d]||0)+1;
-  });
-  const distHtml = Object.entries(urgentDist).sort((a,b)=>+a[0]-+b[0]).map(([d,n])=>
-    `<div style="display:flex;align-items:center;gap:8px;margin-bottom:3px">
-      <span style="font-size:11px;color:var(--g400);width:55px;flex-shrink:0">第 ${d} 天</span>
-      <div style="flex:1;background:var(--g100);border-radius:2px;height:14px;overflow:hidden">
-        <div style="width:${Math.max(n/result.length*100,3).toFixed(1)}%;height:100%;background:var(--red);border-radius:2px"></div>
-      </div>
-      <span style="font-size:11px;font-weight:700;width:30px;text-align:right">${n}</span>
-    </div>`).join('');
-  const suggests = [
-    '⏰ 「你的新戶禮只剩最後 ' + (30-mn) + ' 天，現在下單才能領到！」',
-    '🚨 「限時提醒：帳戶開通 ' + mn + ' 天，$300 好禮快到期了」',
-    '💰 「別讓你的帳戶只是擺著！今天完成第一筆交易，好禮馬上入袋」',
-  ];
-  document.getElementById('cout').innerHTML = `
-  <div class="dvd"></div>
-  <div class="sg">
-    <div class="sb r"><div class="sbn">急迫名單</div><div class="sbv">${result.length.toLocaleString()}</div></div>
-    <div class="sb"><div class="sbn">佔總名單</div><div class="sbv">${(result.length/cFileRows.length*100).toFixed(1)}%</div></div>
-    <div class="sb hi"><div class="sbn">篩選範圍</div><div class="sbv" style="font-size:14px">${mn}-${mx}天</div></div>
-  </div>
-  <div class="al ae" style="margin-bottom:.85rem">🚨 這群人新戶禮快到期，是名單中轉換率最高的族群，建議<strong>優先排程發送</strong>，且文案必須突出截止感。</div>
-  <div style="font-size:11px;font-weight:700;color:var(--g400);letter-spacing:.05em;text-transform:uppercase;margin-bottom:.5rem">開戶天數分佈</div>
-  <div style="background:var(--g50);border-radius:var(--r);padding:.75rem;margin-bottom:.85rem">${distHtml}</div>
-  <div style="font-size:11px;font-weight:700;color:var(--g400);letter-spacing:.05em;text-transform:uppercase;margin-bottom:.5rem">建議推播文案方向</div>
-  <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:.85rem">
-    ${suggests.map(s=>`<div style="padding:.45rem .75rem;background:#fff;border:1px solid var(--bd);border-radius:var(--r);border-left:3px solid var(--red);font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:8px">
-      <span>${s}</span>
-      <button class="btn bo bsm" style="flex-shrink:0" onclick="navigator.clipboard.writeText('${s.replace(/'/g,"\\'")}').then(()=>alert('已複製！'))">複製</button>
-    </div>`).join('')}
-  </div>
-  <button class="btn bp bb" onclick="exportRows(window._urgentRows, '急迫名單_${mn}-${mx}天')">⬇ 下載急迫名單（${result.length} 人）</button>`;
-  window._urgentRows = result;
-  document.getElementById('cout').style.display = 'block';
-}
-
-function initAdvanced(){}
-function initDeposit(){}
-function initActivity(){}
-function initMarket(){}
-function initCountdown(){}
-
-
-/* ─── 19 REWARD MANAGER ─── */
-const DEFAULT_REWARDS = [
-  {code:'MKUS01',   name:'美股官方',      reward:'$300好禮',           type:'現金',    desc:'首次美股交易贈 $300 折抵金',   expire:''},
-  {code:'MKADAP',   name:'廣告投放 AP',   reward:'$300好禮',           type:'現金',    desc:'新戶開戶禮',                   expire:''},
-  {code:'MKADCH',   name:'廣告投放 CH',   reward:'$300好禮',           type:'現金',    desc:'新戶開戶禮',                   expire:''},
-  {code:'MKADGO',   name:'廣告投放 GO',   reward:'$300好禮',           type:'現金',    desc:'新戶開戶禮',                   expire:''},
-  {code:'MKLIFI',   name:'Lifi 合作',     reward:'$300好禮＋限定好禮', type:'現金',    desc:'外部合作專屬加碼',             expire:''},
-  {code:'MKKB01',   name:'KOL B01',       reward:'$300好禮',           type:'現金',    desc:'KOL 導流新戶',                 expire:''},
-  {code:'MKCM07',   name:'CMoney',        reward:'$300好禮',           type:'現金',    desc:'CMoney 導流',                  expire:''},
-  {code:'MKK110',   name:'CMoney 110',    reward:'超商禮品卡 $100',    type:'超商卡',  desc:'CMoney 合作活動',              expire:''},
-  {code:'MKK021',   name:'CMoney 021',    reward:'LINE POINT 300點',   type:'LINE',    desc:'CMoney LINE活動',              expire:''},
-  {code:'MKK022',   name:'CMoney 022',    reward:'LINE POINT 300點',   type:'LINE',    desc:'CMoney LINE活動',              expire:''},
-  {code:'MKK020',   name:'CMoney 020',    reward:'$200好禮',           type:'現金',    desc:'CMoney 特定活動',              expire:''},
-  {code:'MKBCHP',   name:'CHP 銀行',      reward:'超商禮品卡 $200',    type:'超商卡',  desc:'銀行合作優惠',                 expire:''},
-  {code:'MKBKEE',   name:'KEE 銀行',      reward:'$300好禮',           type:'現金',    desc:'銀行合作',                     expire:''},
-  {code:'MKL031',   name:'LINE 031',      reward:'LINE POINT 150點',   type:'LINE',    desc:'LINE 官方活動',                expire:''},
-  {code:'MK0000',   name:'官方預設',      reward:'$300好禮',           type:'現金',    desc:'官方標準新戶禮',               expire:''},
-  {code:'MKK040',   name:'CMoney 040',    reward:'$300好禮',           type:'現金',    desc:'',                             expire:''},
-  {code:'MKK113',   name:'CMoney 113',    reward:'$300好禮',           type:'現金',    desc:'',                             expire:''},
-  {code:'MKBPAY',   name:'PAY 銀行',      reward:'$300好禮',           type:'現金',    desc:'',                             expire:''},
-  {code:'MKAD03',   name:'廣告 AD03',     reward:'$300好禮',           type:'現金',    desc:'',                             expire:''},
-];
-
-const REWARD_TYPES = ['現金', '超商卡', 'LINE', '實體小禮', '手續費優惠', '其他'];
-
-function guiRewards(){
-  return `
-<div style="background:#E1F5EE;border:1px solid #9FE1CB;border-radius:var(--r);padding:.6rem .9rem;font-size:12px;color:#0F6E56;margin-bottom:.85rem">
-  ✅ 已預載 19 組常見行銷碼獎勵。直接修改後按「💾 儲存對照表」，你的設定會記在這台電腦的瀏覽器裡。<br>
-  <span style="color:var(--g600)">⚠ 分享給同事的 HTML 檔案內建相同預設資料，同事修改的設定只會存在他們自己的電腦上，不影響彼此。</span>
-</div>
-<p style="font-size:12px;color:var(--g400);margin-bottom:.85rem">設定每個行銷碼對應的獎勵內容，Push 文案產生器會自動帶入正確說法，不用每次手動改。</p>
-
-<div style="display:flex;gap:8px;margin-bottom:.85rem;flex-wrap:wrap">
-  <button class="btn bp bsm" onclick="addRewardRow()">+ 新增行銷碼</button>
-  <button class="btn bo bsm" onclick="resetRewardDefaults()">↺ 恢復預設資料</button>
-  <button class="btn bd bsm" onclick="saveRewardTable()">💾 儲存對照表</button>
-  <span id="rsave-ok" style="display:none;font-size:12px;color:#0F6E56;align-self:center">✅ 已儲存！</span>
-</div>
-
-<div style="overflow-x:auto">
-<table style="width:100%;border-collapse:collapse;font-size:12px" id="rtbl">
-  <thead>
-    <tr style="background:var(--g50)">
-      <th style="text-align:left;padding:.45rem .65rem;border-bottom:1.5px solid var(--bd);font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--g400);width:105px">行銷碼</th>
-      <th style="text-align:left;padding:.45rem .65rem;border-bottom:1.5px solid var(--bd);font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--g400);width:100px">名稱</th>
-      <th style="text-align:left;padding:.45rem .65rem;border-bottom:1.5px solid var(--bd);font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--g400)">獎勵內容（文案會直接用這個）</th>
-      <th style="text-align:left;padding:.45rem .65rem;border-bottom:1.5px solid var(--bd);font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--g400);width:90px">類型</th>
-      <th style="text-align:left;padding:.45rem .65rem;border-bottom:1.5px solid var(--bd);font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--g400)">備註說明</th>
-      <th style="text-align:left;padding:.45rem .65rem;border-bottom:1.5px solid var(--bd);font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--g400);width:95px">截止日</th>
-      <th style="text-align:center;padding:.45rem .65rem;border-bottom:1.5px solid var(--bd);width:40px"></th>
-    </tr>
-  </thead>
-  <tbody id="rtbody"></tbody>
-</table>
-</div>
-
-<div style="margin-top:1.1rem;padding:.75rem 1rem;background:var(--g50);border-radius:var(--r);border:1px solid var(--bd)">
-  <div style="font-size:11px;font-weight:700;color:var(--g400);letter-spacing:.05em;text-transform:uppercase;margin-bottom:.4rem">使用方式</div>
-  <div style="font-size:12px;color:var(--g600);line-height:1.8">
-    1. 在上方表格填好每個行銷碼的獎勵內容，例如「超商禮品卡 $200」或「LINE POINT 300點」<br>
-    2. 點「💾 儲存對照表」，資料會記在瀏覽器裡<br>
-    3. 到 <strong>Push 文案產生器</strong>，選取行銷碼後，文案會自動把「$300好禮」替換成該碼的實際獎勵<br>
-    4. 每次換檔時回來更新這張表就好，不用每次改文案
-  </div>
-</div>`;
-}
-
-function initRewards(){
-  renderRewardTable();
-}
-
-function renderRewardTable(){
-  const data = loadRewards();
-  const tbody = document.getElementById('rtbody');
-  if(!tbody) return;
-  tbody.innerHTML = '';
-  data.forEach((r, i) => {
-    const tr = document.createElement('tr');
-    tr.style.borderBottom = '1px solid var(--g100)';
-    const typOpts = REWARD_TYPES.map(t=>`<option${r.type===t?' selected':''}>${t}</option>`).join('');
-    const expireCls = isExpiringSoon(r.expire) ? 'style="color:var(--red);font-weight:700"' : '';
-    tr.innerHTML = `
-      <td style="padding:.38rem .5rem"><input style="width:95px;border:1px solid var(--bd);border-radius:3px;padding:.3rem .45rem;font-size:11px;font-family:monospace;font-weight:700;color:var(--red)" value="${r.code}" placeholder="MKXXXX" data-field="code"></td>
-      <td style="padding:.38rem .5rem"><input style="width:90px;border:1px solid var(--bd);border-radius:3px;padding:.3rem .45rem;font-size:11px" value="${r.name||''}" placeholder="活動名稱" data-field="name"></td>
-      <td style="padding:.38rem .5rem"><input style="width:100%;min-width:160px;border:1.5px solid #0F6E56;border-radius:3px;padding:.3rem .45rem;font-size:12px;font-weight:600;color:#0F6E56" value="${r.reward||''}" placeholder="例：$300好禮、超商卡$200" data-field="reward"></td>
-      <td style="padding:.38rem .5rem"><select style="width:85px;border:1px solid var(--bd);border-radius:3px;padding:.3rem .3rem;font-size:11px" data-field="type">${typOpts}</select></td>
-      <td style="padding:.38rem .5rem"><input style="width:100%;min-width:120px;border:1px solid var(--bd);border-radius:3px;padding:.3rem .45rem;font-size:11px;color:var(--g600)" value="${r.desc||''}" placeholder="備註" data-field="desc"></td>
-      <td style="padding:.38rem .5rem"><input style="width:88px;border:1px solid var(--bd);border-radius:3px;padding:.3rem .45rem;font-size:11px" ${expireCls} type="date" value="${r.expire||''}" data-field="expire"></td>
-      <td style="padding:.38rem .5rem;text-align:center"><button style="background:none;border:none;cursor:pointer;color:var(--g400);font-size:16px;padding:0 3px" onclick="removeRewardRow(this)" title="刪除">×</button></td>`;
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr style="background:var(--g50)">
+  <th style="text-align:left;padding:.4rem .5rem;border-bottom:1.5px solid var(--bd);font-size:10px;font-weight:700;color:var(--g400);text-transform:uppercase;width:95px">行銷碼</th>
+  <th style="text-align:left;padding:.4rem .5rem;border-bottom:1.5px solid var(--bd);font-size:10px;font-weight:700;color:var(--g400);text-transform:uppercase;width:90px">名稱</th>
+  <th style="text-align:left;padding:.4rem .5rem;border-bottom:1.5px solid var(--bd);font-size:10px;font-weight:700;color:var(--g400);text-transform:uppercase">獎勵內容（文案直接用這個）</th>
+  <th style="text-align:left;padding:.4rem .5rem;border-bottom:1.5px solid var(--bd);font-size:10px;font-weight:700;color:var(--g400);text-transform:uppercase;width:80px">類型</th>
+  <th style="text-align:center;padding:.4rem .5rem;border-bottom:1.5px solid var(--bd);width:35px"></th>
+</tr></thead><tbody id="rwtbody"></tbody></table></div>`;}
+function initRewards(){renderRwTable();}
+function renderRwTable(){
+  const data=loadRewards();const tbody=document.getElementById('rwtbody');if(!tbody)return;tbody.innerHTML='';
+  data.forEach((r,i)=>{
+    const tr=document.createElement('tr');tr.style.borderBottom='1px solid var(--g100)';
+    const typOpts=RWTYPES.map(t=>`<option${r.type===t?' selected':''}>${t}</option>`).join('');
+    tr.innerHTML=`<td style="padding:.32rem .45rem"><input class="rtinp code" value="${r.code}" placeholder="MKXXXX" data-f="code" style="width:88px"></td>
+    <td style="padding:.32rem .45rem"><input class="rtinp" value="${r.name||''}" placeholder="名稱" data-f="name" style="width:82px"></td>
+    <td style="padding:.32rem .45rem"><input class="rtinp reward" value="${r.reward||''}" placeholder="例：$300好禮" data-f="reward" style="width:100%;min-width:150px"></td>
+    <td style="padding:.32rem .45rem"><select class="rtinp" style="width:78px" data-f="type">${typOpts}</select></td>
+    <td style="padding:.32rem .45rem;text-align:center"><button style="background:none;border:none;cursor:pointer;color:var(--g400);font-size:15px;padding:0 2px" onclick="this.closest('tr').remove()">×</button></td>`;
     tbody.appendChild(tr);
   });
 }
-
-function collectRewardTable(){
-  const rows = document.querySelectorAll('#rtbody tr');
-  return Array.from(rows).map(tr=>{
-    const get = f => tr.querySelector(`[data-field="${f}"]`)?.value?.trim()||'';
-    return {code:get('code').toUpperCase(), name:get('name'), reward:get('reward'), type:get('type'), desc:get('desc'), expire:get('expire')};
+function collectRwTable(){
+  return Array.from(document.querySelectorAll('#rwtbody tr')).map(tr=>{
+    const g=f=>tr.querySelector(`[data-f="${f}"]`)?.value?.trim()||'';
+    return{code:g('code').toUpperCase(),name:g('name'),reward:g('reward'),type:g('type'),desc:'',expire:''};
   }).filter(r=>r.code);
 }
+function saveRwTable(){const d=collectRwTable();saveRewards(d);const ok=document.getElementById('rw-ok');if(ok){ok.style.display='inline';setTimeout(()=>ok.style.display='none',2000);}}
+function addRwRow(){
+  const tbody=document.getElementById('rwtbody');if(!tbody)return;
+  const tr=document.createElement('tr');tr.style.borderBottom='1px solid var(--g100)';
+  const typOpts=RWTYPES.map(t=>`<option>${t}</option>`).join('');
+  tr.innerHTML=`<td style="padding:.32rem .45rem"><input class="rtinp code" placeholder="MKXXXX" data-f="code" style="width:88px"></td>
+  <td style="padding:.32rem .45rem"><input class="rtinp" placeholder="名稱" data-f="name" style="width:82px"></td>
+  <td style="padding:.32rem .45rem"><input class="rtinp reward" placeholder="例：超商卡$200" data-f="reward" style="width:100%;min-width:150px"></td>
+  <td style="padding:.32rem .45rem"><select class="rtinp" style="width:78px" data-f="type">${typOpts}</select></td>
+  <td style="padding:.32rem .45rem;text-align:center"><button style="background:none;border:none;cursor:pointer;color:var(--red);font-size:15px;padding:0 2px" onclick="this.closest('tr').remove()">×</button></td>`;
+  tbody.appendChild(tr);tr.querySelector('[data-f="code"]').focus();
+}
+function resetRwDefaults(){if(confirm('確定恢復預設資料？')){saveRewards(DEFAULT_REWARDS);renderRwTable();}}
 
-function saveRewardTable(){
-  const data = collectRewardTable();
-  saveRewards(data);
-  const ok = document.getElementById('rsave-ok');
-  if(ok){ ok.style.display='inline'; setTimeout(()=>ok.style.display='none', 2000); }
+
+/* ═══ TIMING RECOMMENDATIONS ═══ */
+const TIMING_MAP = {
+  '未開通交易':     {tw:'週日晚間 20:00–22:00',  us:'—',           why:'週末晚間有時間處理帳戶事務，完成開通門檻低'},
+  '台股APP一周內有登入': {tw:'週三晚間 20:00',      us:'—',           why:'週中用戶已建立APP習慣，晚間是瀏覽高峰'},
+  '有加入選股':     {tw:'開盤前 08:30–09:00',    us:'—',           why:'追蹤個股時情緒最強烈，交易意願最高'},
+  '有入金':        {tw:'週一早上 08:30–09:30',   us:'—',           why:'股市開盤前，資金焦慮感最高，行動轉化率最佳'},
+  '有開通交易但無後續動作且登入一周以上': {tw:'週五下午 17:00–19:00', us:'—', why:'下班後放鬆，週五好心情對促銷最敏感'},
+  '美股APP一周內有登入': {tw:'—',              us:'週二晚間 22:00–23:00', why:'美股盤前時段，用戶有強烈下單衝動'},
+  '有美股交易':     {tw:'週三早上 09:00',         us:'週二晚間 21:30',    why:'台股已有習慣的用戶，美股搭配盤前推送效果好'},
+};
+
+function renderTiming(segId) {
+  const t = TIMING_MAP[segId];
+  if (!t) return '';
+  return `<div style="background:#fff;border:1.5px solid var(--bd);border-radius:var(--r);padding:.75rem 1rem;margin-top:.75rem">
+    <div style="font-size:10px;font-weight:700;color:var(--g400);letter-spacing:.05em;text-transform:uppercase;margin-bottom:.55rem">⏰ 建議推播時段</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:.5rem">
+      <div style="background:var(--blul);border-radius:var(--r);padding:.5rem .75rem">
+        <div style="font-size:10px;font-weight:700;color:var(--blu);margin-bottom:2px">🇹🇼 台股APP</div>
+        <div style="font-size:13px;font-weight:700;color:var(--blu)">${t.tw}</div>
+      </div>
+      <div style="background:var(--rl);border-radius:var(--r);padding:.5rem .75rem">
+        <div style="font-size:10px;font-weight:700;color:var(--red);margin-bottom:2px">🌎 美股APP</div>
+        <div style="font-size:13px;font-weight:700;color:var(--red)">${t.us}</div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--g600)">💡 ${t.why}</div>
+  </div>`;
 }
 
-function addRewardRow(){
-  const tbody = document.getElementById('rtbody');
-  if(!tbody) return;
-  const tr = document.createElement('tr');
-  tr.style.borderBottom = '1px solid var(--g100)';
-  const typOpts = REWARD_TYPES.map(t=>`<option>${t}</option>`).join('');
-  tr.innerHTML = `
-    <td style="padding:.38rem .5rem"><input style="width:95px;border:1px solid var(--bd);border-radius:3px;padding:.3rem .45rem;font-size:11px;font-family:monospace;font-weight:700;color:var(--red)" placeholder="MKXXXX" data-field="code"></td>
-    <td style="padding:.38rem .5rem"><input style="width:90px;border:1px solid var(--bd);border-radius:3px;padding:.3rem .45rem;font-size:11px" placeholder="活動名稱" data-field="name"></td>
-    <td style="padding:.38rem .5rem"><input style="width:100%;min-width:160px;border:1.5px solid #0F6E56;border-radius:3px;padding:.3rem .45rem;font-size:12px;font-weight:600;color:#0F6E56" placeholder="例：超商卡 $200、LINE POINT 150點" data-field="reward"></td>
-    <td style="padding:.38rem .5rem"><select style="width:85px;border:1px solid var(--bd);border-radius:3px;padding:.3rem .3rem;font-size:11px" data-field="type">${typOpts}</select></td>
-    <td style="padding:.38rem .5rem"><input style="width:100%;min-width:120px;border:1px solid var(--bd);border-radius:3px;padding:.3rem .45rem;font-size:11px;color:var(--g600)" placeholder="備註" data-field="desc"></td>
-    <td style="padding:.38rem .5rem"><input style="width:88px;border:1px solid var(--bd);border-radius:3px;padding:.3rem .45rem;font-size:11px" type="date" data-field="expire"></td>
-    <td style="padding:.38rem .5rem;text-align:center"><button style="background:none;border:none;cursor:pointer;color:var(--red);font-size:16px;padding:0 3px" onclick="removeRewardRow(this)">×</button></td>`;
-  tbody.appendChild(tr);
-  tr.querySelector('[data-field="code"]').focus();
-}
-
-function removeRewardRow(btn){
-  btn.closest('tr').remove();
-}
-
-function resetRewardDefaults(){
-  if(!confirm('確定恢復預設資料？目前的修改會被覆蓋。')) return;
-  saveRewards(DEFAULT_REWARDS);
-  renderRewardTable();
-}
-
-function isExpiringSoon(dateStr){
-  if(!dateStr) return false;
-  const d = new Date(dateStr);
-  if(isNaN(d)) return false;
-  return (d - Date.now()) < 7 * 86400000;
-}
-
-/* ══ INIT ══ */
-rg();
+/* ═══ INIT ═══ */
+document.getElementById('si').value='';rg();updateUpBanner();
 </script>
 </body>
 </html>
